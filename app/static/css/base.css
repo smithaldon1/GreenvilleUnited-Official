@@ -1,0 +1,7 @@
+/* Define CSS Variables */
+:root {
+    --gufc-green: #224A24;
+    --gufc-yellow: #FACC68;
+    --darker-green: #173119;
+    --opaque-bg: rgba(255, 255, 255, 0.85);
+}

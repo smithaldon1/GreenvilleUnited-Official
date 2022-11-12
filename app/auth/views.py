@@ -4,4 +4,12 @@ from flask import render_template, request, url_for, redirect
 @auth_bp.route('/')
 def show_register():
     if request.method == 'GET':
-        return render_template('auth/register.html')
+        title = 'Register'
+        return render_template('auth/register.html', title=title)
+
+@auth_bp.route('/')
+def show_login(request):
+    if request.method == 'GET':
+        title = 'Login'
+        return render_template('auth/login.html', title=title)
+    

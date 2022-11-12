@@ -7,8 +7,11 @@ def show_index():
     if request.method == 'POST':
         # TODO add new 
         if success:
-            return render_template('main/thank-you.html')
+            title = 'Thank you!'
+            return render_template('main/thank-you.html', title=title)
         else:
-            return render_template('404.html')
+            title = 'Page Not Found...'
+            return render_template('404.html', title=title)
     if request.method == 'GET':
-        return render_template('main/index.html')
+        title = 'GUFC Goes National!'
+        return render_template('main/index.html', title=title)
