@@ -7,6 +7,11 @@ def show_index():
         title = 'About'
         return render_template('about/index.html', title=title)
     
+@about_bp.route('/league')
+def show_league():
+    title = 'About League'
+    return render_template('about/league.html', title=title)
+
 @about_bp.route('/vmc')
 def show_vmc():
     title = 'Vision, Mission, Core'

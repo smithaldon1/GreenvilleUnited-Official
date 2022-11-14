@@ -4,6 +4,7 @@ from flask import render_template, request
 @store_bp.route('/')
 def show_index():
     if request.method == 'GET':
+        title = 'Store'
         return render_template('store/index.html', title=title)
     
 @store_bp.route('/tickets')

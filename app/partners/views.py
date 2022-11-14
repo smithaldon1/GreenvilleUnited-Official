@@ -12,7 +12,7 @@ def show_local_sponsors():
     title = 'Local Sponsors'
     return render_template('partners/local-sponsors.html', title=title)
 
-@partners_bp.route('/partner')
+@partners_bp.route('/become-a-partner')
 def show_partner():
     title = 'Become A Partner'
     return render_template('partners/partner.html', title=title)
