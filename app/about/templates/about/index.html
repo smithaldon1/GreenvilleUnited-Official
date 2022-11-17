@@ -1,16 +1,21 @@
-{% extends 'base.html' %}
+{% extends 'about/base.html' %}
 
 {% block css %}
-  
+  {{ super() }}
 {% endblock %}
 
 {% block main %}
-  <div class="container">
-    <h1 class="py-4">Index.html</h1>
-    <p>About page</p>
+  {{ super() }}
+  <div class="container-fluid">
+    <div class="container-sm text-center">
+      <img src="{{ url_for('static', filename='img/Greenville-Logo.png') }}" alt="GUFC Logo">
+    </div>
+    <div class="container-sm pt-3 pb-5">
+      <!-- Body Text -->
+    </div>
   </div>
 {% endblock %}
 
 {% block js %}
-  
+  {{ super() }}
 {% endblock %}

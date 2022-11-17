@@ -2,6 +2,16 @@
 :root {
     --gufc-green: #224A24;
     --gufc-yellow: #FACC68;
+    --gray-yellow: #b5934a;
     --darker-green: #173119;
     --opaque-bg: rgba(255, 255, 255, 0.85);
+}
+.nav-link {
+    color: var(--gufc-green);
+}
+.footer-link {
+    color: var(--gufc-yellow);
+}
+.footer-link:hover {
+    color: var(--gray-yellow);
 }

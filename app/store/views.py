@@ -21,3 +21,13 @@ def show_team_store():
 def show_support():
     title = 'Support'
     return render_template('store/support.html', title=title)
+
+@store_bp.route('/terms-conditions')
+def show_terms():
+    title = 'Terms and Conditions'
+    return render_template('store/terms-conditions.html', title=title)
+
+@store_bp.route('/privacy-policy')
+def show_pp():
+    title = 'Privacy Policy'
+    return render_template('store/privacy-policy.html', title=title)
