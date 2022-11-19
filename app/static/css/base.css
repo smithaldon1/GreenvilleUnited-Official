@@ -15,3 +15,6 @@
 .footer-link:hover {
     color: var(--gray-yellow);
 }
+.brand-ico {
+    filter: invert(81%) sepia(54%) saturate(493%) hue-rotate(337deg) brightness(100%) contrast(96%);
+}

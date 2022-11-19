@@ -14,7 +14,24 @@
     <!-- Sub-nav bar -->
     <div class="container-fluid">
         <div class="container-sm">
-            
+            <ul class="nav justify-content-center">
+                <li class="nav-item">
+                  <a class="nav-link" href="{{ url_for('about.show_index') }}">About</a>
+                </li>
+                <div class="vr"></div>
+                <li class="nav-item">
+                  <a class="nav-link" href="{{ url_for('about.show_league') }}">League</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('about.show_club') }}">Club</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('about.show_team') }}">Team</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('about.show_players') }}">Players</a>
+                </li>
+            </ul>
         </div>
     </div>
     <!-- Breadcrumbs object -->
