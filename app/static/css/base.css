@@ -6,6 +6,9 @@
     --darker-green: #173119;
     --opaque-bg: rgba(255, 255, 255, 0.85);
 }
+main {
+    color: var(--gufc-green);
+}
 .nav-link {
     color: var(--gufc-green);
 }
