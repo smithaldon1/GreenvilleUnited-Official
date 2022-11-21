@@ -6,6 +6,9 @@
     --darker-green: #173119;
     --opaque-bg: rgba(255, 255, 255, 0.85);
 }
+p {
+    padding: 1rem 0 1rem 0;
+}
 .schedule-btn {
     border: none;
     border-radius: 10px;

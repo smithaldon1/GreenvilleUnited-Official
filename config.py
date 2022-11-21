@@ -13,6 +13,9 @@ class Config:
     TESTING = False
     WTF_CSRF_ENABLED = True
     
+    # Twitter Config
+    BEARER_TOKEN = os.getenv('BEARER_TOKEN', default=None)
+    
     # Settings applicable to all environments
     SECRET_KEY = os.getenv('SECRET_KEY', default='Its a trap')
     
