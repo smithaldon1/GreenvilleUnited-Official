@@ -5,36 +5,35 @@
 {% endblock %}
 
 {% block main %}
-<div class="container py-4" id="main-contain">
-    <div class="container-sm">
-        <h1 class="text-center py-2">Under Construction</h1>
-        <div class="container text-center">
-          <img class="py-5 mx-auto" src="{{ url_for('static', filename='img/under-construction.svg') }}" alt="Under Construction" height='550rem'>
+<div class="container py-4">
+  <div class="container-sm">
+      <h1 class="text-center py-2">Under Construction</h1>
+      <div class="container text-center">
+        <img class="py-5 mx-auto img-fluid" id="uc-img" src="{{ url_for('static', filename='img/under-construction.svg') }}" alt="Under Construction">
+      </div>
+      <h3 class="py-2 text-center">Pardon our interruption while we continue to improve our website!</h3>
+      <div class="container-sm">
+        <p class="pt-2 pb-5 text-muted">Thank you for visiting our page. We are currently working to improve the accessibility and user experience of our website. If you have any questions or need assistance, please do not hesitate to <a class="text-decoration-none" href="mailto:admin@greenvilleutd.com">contact us</a>.</p>
+      </div>
+  </div>
+  <div class="container-sm">
+    <div class="card text-center p-3" id="newsletter">
+      <div class="card-body">
+        <h5 class="card-title">Team Newsletter</h5>
+        <p class="card-text">Sign up for our team newsletter to receive updates about the team, club, and league.<br><small class="muted">You may unsubscribe at any time.</small></p>
+      </div>
+      <form method="post" action="/about/uc">
+        <div class="form-floating mb-3">
+          <input type="email" class="form-control" name="email" id="email" placeholder="name@example.com" required>
+          <label for="email">Email address</label>
+          <div class="invalid-feedback">
+            Please provide a valid email address.
+          </div>
         </div>
-        <h3 class="py-2 text-center">Pardon our interruption while we continue to improve our website!</h3>
-        <div class="container-sm">
-          <p class="pt-2 pb-5 text-muted">Thank you for visiting our page. We are currently working to improve the accessibility and user experience of our website. If you have any questions or need assistance, please do not hesitate to <a class="text-decoration-none" href="mailto:admin@greenvilleutd.com">contact us</a>.</p>
-        </div>
+        <button class="btn" id="subtn" type="submit">Sign Up</button>
+      </form>
     </div>
-    <div class="container-sm">
-        <div class="card text-center p-3" id="newsletter">
-            <div class="card-body">
-              <h5 class="card-title">Team Newsletter</h5>
-              <p class="card-text">Sign up for our team newsletter to receive updates about the team, club, and league.<br><small class="muted">You may unsubscribe at any time.</small></p>
-            </div>
-            <form method="post" action="/about/uc">
-              <div class="form-floating mb-3">
-                <input type="email" class="form-control" name="email" id="email" placeholder="name@example.com" required>
-                <label for="email">Email address</label>
-                <div class="invalid-feedback">
-                  Please provide a valid email address.
-                </div>
-              </div>
-              <button class="btn" id="subtn" type="submit">Sign Up</button>
-            </form>
-        </div>
-    </div>
-
+  </div>
 </div>
 {% endblock %}
 

@@ -25,7 +25,9 @@ main {
     color: var(--gray-yellow);
 }
 .brand-ico {
-    filter: invert(81%) sepia(54%) saturate(493%) hue-rotate(337deg) brightness(100%) contrast(96%);
-    transform: scale(1.25);
+    filter: invert(81%) sepia(54%) saturate(493%) hue-rotate(337deg) brightness(100%) contrast(96%);   
+}
+.brand-ico:hover, .navbar-brand:hover, .social-nav:hover, .foot-logo:hover {
+    transform: scale(1.15);
     transition: all 0.2s ease;
 }

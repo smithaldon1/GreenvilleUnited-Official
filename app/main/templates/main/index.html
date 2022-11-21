@@ -1,12 +1,12 @@
 {% extends 'base.html' %}
 
 {% block css %}
-  
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/main-index.css') }}">
 {% endblock %}
 
 {% block main %}
-  <div class="container">
-    <!-- Carousel Hero -->
+  <!-- Carousel Hero -->
+  <div class="container hero">
     <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
       <div class="carousel-inner">
         <div class="carousel-item active" data-bs-interval="15000">
@@ -28,63 +28,122 @@
         <span class="visually-hidden">Next</span>
       </button>
     </div>
+  </div>
 
-    <!-- Spotlight Articles -->
-    <div class="container">
-      <div class="row g-3" data-masonry='{"percentPosition": true }'>
-        {% for card in cards %}
-        <div class="col-md-6 col-lg-4">
-          <div class="card" style="width: 18rem;">
-            <img src="{{ card.img_src }}" class="card-img-top " alt="{{ card.img_title }}">
-            <div class="card-body">
-              <h5 class="card-title">{{ card.title }}</h5>
-              <p class="card-text">{{ card.text }}</p>
-              <a href="{{ card.link_url }}" class="btn btn-primary">{{ card.link_text }}</a>
-            </div>
+  <!-- Spotlight Articles -->
+  <div class="container py-4">
+    <h2 class="py-2">Spotlight</h2>
+    <div class="row g-3" data-masonry='{"percentPosition": true }'>
+      {% for card in cards %}
+      <div class="col-md-6 col-lg-4">
+        <div class="card" style="width: 18rem;">
+          <img src="{{ card.img_src }}" class="card-img-top " alt="{{ card.img_title }}">
+          <div class="card-body">
+            <h5 class="card-title">{{ card.title }}</h5>
+            <p class="card-text">{{ card.text }}</p>
+            <a href="{{ card.link_url }}" class="btn btn-primary">{{ card.link_text }}</a>
           </div>
         </div>
-        {% endfor %}
-        <div class="col-md-6 col-lg-4">
-          <div class="card" style="width: 18rem;">
-            <img src="..." class="card-img-top" alt="...">
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-              <a href="#" class="btn btn-primary">Go somewhere</a>
-            </div>
+      </div>
+      {% endfor %}
+      <div class="col-md-6 col-lg-4">
+        <div class="card" style="width: 18rem;">
+          <img src="..." class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <a href="#" class="btn btn-primary">Go somewhere</a>
           </div>
         </div>
-        <div class="col-md-6 col-lg-4">
-          <div class="card" style="width: 18rem;">
-            <img src="..." class="card-img-top" alt="...">
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-              <a href="#" class="btn btn-primary">Go somewhere</a>
-            </div>
+      </div>
+      <div class="col-md-6 col-lg-4">
+        <div class="card" style="width: 18rem;">
+          <img src="..." class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <a href="#" class="btn btn-primary">Go somewhere</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4">
+        <div class="card" style="width: 18rem;">
+          <img src="..." class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <a href="#" class="btn btn-primary">Go somewhere</a>
           </div>
         </div>
       </div>
     </div>
+  </div>
 
-    <!-- News Section -->
-    <div class="container">
-      
+  <!-- News Section -->
+  <div class="container py-4">
+    <h2>News</h2>
+  </div>
+  
+  <!-- Social Media Section -->
+  <div class="container py-4">
+    <h2>Social Media</h2>
+    <ul class="nav nav-tabs" id="socialTabs" role="tablist">
+      <li class="nav-item" role="presentation">
+        <button class="nav-link active" id="twitter-tab" data-bs-toggle="tab" data-bs-target="#twitter-tab-pane" type="button" role="tab" aria-controls="twitter-tab-pane" aria-selected="true">Twitter</button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link" id="facebook-tab" data-bs-toggle="tab" data-bs-target="#facebook-tab-pane" type="button" role="tab" aria-controls="facebook-tab-pane" aria-selected="false">Facebook</button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link" id="instagram-tab" data-bs-toggle="tab" data-bs-target="#instagram-tab-pane" type="button" role="tab" aria-controls="instagram-tab-pane" aria-selected="false">Instagram</button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link" id="youtube-tab" data-bs-toggle="tab" data-bs-target="#youtube-tab-pane" type="button" role="tab" aria-controls="youtube-tab-pane" aria-selected="false">YouTube</button>
+      </li>
+    </ul>
+    <div class="tab-content" id="socialTabsContent">
+      <div class="tab-pane fade show active" id="twitter-tab-pane" role="tabpanel" aria-labelledby="twitter-tab" tabindex="0">
+        twitter
+      </div>
+      <div class="tab-pane fade" id="facebook-tab-pane" role="tabpanel" aria-labelledby="facebook-tab" tabindex="0">
+        facebook
+      </div>
+      <div class="tab-pane fade" id="instagram-tab-pane" role="tabpanel" aria-labelledby="instagram-tab" tabindex="0">
+        instagram
+      </div>
+      <div class="tab-pane fade" id="youtube-tab-pane" role="tabpanel" aria-labelledby="youtube-tab" tabindex="0">
+        youtube
+      </div>
     </div>
-    <!-- Social Media Section -->
-    <div class="container">
+  </div>
+  
+  <!-- Partners -->
+  <div class="container-fluid py-4" id="partners-div">
+    <h2 class="text-center">Our Partners</h2>
+  </div>
+  
+  <!-- Local Sponsors -->
+  <div class="container-fluid py-4" id="sponsors-div">
+    <h2 class="text-center">Local Sponsors</h2>
+  </div>
 
+  <div class="container py-4 newsletter">
+    <div class="card text-center p-3" id="newsletter">
+      <div class="card-body">
+        <h5 class="card-title">Team Newsletter</h5>
+        <p class="card-text">Sign up for our team newsletter to receive updates about the team, club, and league.<br><small class="muted">You may unsubscribe at any time.</small></p>
+      </div>
+      <form method="post" action="/about/uc">
+        <div class="form-floating mb-3">
+          <input type="email" class="form-control" name="email" id="email" placeholder="name@example.com" required>
+          <label for="email">Email address</label>
+          <div class="invalid-feedback">
+            Please provide a valid email address.
+          </div>
+        </div>
+        <button class="btn" id="subtn" type="submit">Sign Up</button>
+      </form>
     </div>
-    <!-- Partners -->
-    <div class="container">
-
-    </div>
-    <!-- Local Sponsors -->
-    <div class="container">
-
-    </div>
-    <h1 class="py-4">Index.html</h1>
-    <p>Home page</p>
   </div>
 {% endblock %}
 

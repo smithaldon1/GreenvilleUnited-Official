@@ -1,6 +1,19 @@
-#uc-img {
-    max-height: 40rem;
+
+/* Partners Stylings */
+#partners-div {
+    color: var(--gufc-yellow);
+    background-color: var(--gufc-green);
 }
+
+/* Local Sponsors Stylings */
+#sponsors-div {
+    background-color: var(--gufc-yellow);
+    color: var(--gufc-green);
+}
+
+
+
+/* Newsletter Stylings */
 #newsletter {
     background-color: var(--gufc-yellow);
     border: none;

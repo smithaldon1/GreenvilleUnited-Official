@@ -17,3 +17,7 @@ def show_donate():
 def show_site_map():
     title = 'Site Map'
     return render_template('main/site-map.html', title=title)
+
+@main_bp.route('/privacy-policy')
+def show_pp():
+    return render_template('store/privacy-policy.html', title='Privacy Policy')

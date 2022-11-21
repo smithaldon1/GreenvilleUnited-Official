@@ -32,7 +32,6 @@
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
-        <!-- TODO add css to made dropdown appear on hover of parent button -->
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
           <ul class="navbar-nav">
             <li class="nav-item dropdown hoverable">
@@ -153,7 +152,7 @@
         </ul>
         <ul class="nav col-md-6 justify-content-end align-middle py-4">
           <li class="nav-item">
-            <a href="{{ url_for('store.show_pp') }}" class="nav-link align-middle footer-link px-2">Privacy Policy</a>
+            <a href="{{ url_for('main.show_pp') }}" class="nav-link align-middle footer-link px-2">Privacy Policy</a>
           </li>
           <li class="nav-item">
             <a href="{{ url_for('store.show_terms') }}" class="nav-link align-middle footer-link px-2">Terms and Conditions</a>
