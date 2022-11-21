@@ -6,6 +6,83 @@
 
 {% block main %}
   <div class="container">
+    <!-- Carousel Hero -->
+    <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-inner">
+        <div class="carousel-item active" data-bs-interval="15000">
+          <img src="..." class="d-block w-100" alt="...">
+        </div>
+        <div class="carousel-item" data-bs-interval="15000">
+          <img src="..." class="d-block w-100" alt="...">
+        </div>
+        <div class="carousel-item" data-bs-interval="15000">
+          <img src="..." class="d-block w-100" alt="...">
+        </div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+
+    <!-- Spotlight Articles -->
+    <div class="container">
+      <div class="row g-3" data-masonry='{"percentPosition": true }'>
+        {% for card in cards %}
+        <div class="col-md-6 col-lg-4">
+          <div class="card" style="width: 18rem;">
+            <img src="{{ card.img_src }}" class="card-img-top " alt="{{ card.img_title }}">
+            <div class="card-body">
+              <h5 class="card-title">{{ card.title }}</h5>
+              <p class="card-text">{{ card.text }}</p>
+              <a href="{{ card.link_url }}" class="btn btn-primary">{{ card.link_text }}</a>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+        <div class="col-md-6 col-lg-4">
+          <div class="card" style="width: 18rem;">
+            <img src="..." class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">Card title</h5>
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+              <a href="#" class="btn btn-primary">Go somewhere</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <div class="card" style="width: 18rem;">
+            <img src="..." class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">Card title</h5>
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+              <a href="#" class="btn btn-primary">Go somewhere</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- News Section -->
+    <div class="container">
+      
+    </div>
+    <!-- Social Media Section -->
+    <div class="container">
+
+    </div>
+    <!-- Partners -->
+    <div class="container">
+
+    </div>
+    <!-- Local Sponsors -->
+    <div class="container">
+
+    </div>
     <h1 class="py-4">Index.html</h1>
     <p>Home page</p>
   </div>

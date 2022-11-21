@@ -6,6 +6,12 @@
     --darker-green: #173119;
     --opaque-bg: rgba(255, 255, 255, 0.85);
 }
+.schedule-btn {
+    border: none;
+    border-radius: 10px;
+    background-color: var(--gufc-green);
+    color: var(--gufc-yellow);
+}
 main {
     color: var(--gufc-green);
 }
@@ -20,4 +26,6 @@ main {
 }
 .brand-ico {
     filter: invert(81%) sepia(54%) saturate(493%) hue-rotate(337deg) brightness(100%) contrast(96%);
+    transform: scale(1.25);
+    transition: all 0.2s ease;
 }
