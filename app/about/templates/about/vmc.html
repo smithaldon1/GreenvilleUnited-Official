@@ -1,17 +1,50 @@
-{% extends 'base.html' %}
+{% extends 'about/base.html' %}
 
 {% block css %}
-  
+  {{ super() }}
 {% endblock %}
 
 {% block main %}
-<!-- Hero Title w/ background image -->
-<!-- Sub-nav bar -->
-<!-- Breadcrumbs object -->
-<!-- Larger Logo -->
-<!-- Body Text -->
+{{ super() }}
+<div class="container-fluid">
+    <div class="container-sm">
+        <h1 class="py-3">Vision Statement</h1>
+        <ul >
+            <li>To be the premier soccer club in Eastern NC</li>
+            <li>Provide youth talent the ability to compete at the highest level</li>
+            <li>Build a reputation of inclusion and diversity</li>
+            <li>Establish a sustainable business with year over year growth</li>
+            <li>Establish a multi-use stadium to drive economic impact for the city of Greenville</li>
+        </ul>
+    </div>
+    <div class="container-sm">
+        <h1 class="py-3">Mission Statement</h1>
+        <p>Greenville United is an organization that serves the diverse community of Greenville NC through the beautiful game of soccer. The club inspires to provide a platform for the community to support and help local players showcase their talent on a regional and national level. We are a club committed to bringing our community and local businesses together through the beautiful game of soccer.</p>
+    </div>
+    <div class="container-sm">
+        <h1 class="py-3">Core Values</h1>
+        <div class="row">
+            <div class="col">
+                <h4>Accountability</h4>
+            </div>
+            <div class="col">
+                <h4>Diversity Inclusion</h4>
+            </div>
+            <div class="col">
+                <h4>Customer Focused</h4>
+            </div>
+            <div class="col">
+                <h4>Teamwork</h4>
+            </div>
+            <div class="col">
+                <h4>Continuous Improvement</h4>
+            </div>
+        </div>
+    </div>
+</div>
+
 {% endblock %}
 
 {% block js %}
-  
+  {{ super() }}
 {% endblock %}

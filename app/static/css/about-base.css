@@ -1,0 +1,17 @@
+.hero {
+    min-height: 20rem;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 0 -15rem;
+    color: white;
+    
+}
+
+@media (max-width: 991.98px)  {
+    .hero {
+        background-position: 0 0;
+    }
+}
+.sub-nav {
+    background-color: var(--off-white);
+}

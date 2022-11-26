@@ -6,47 +6,56 @@
 
 {% block main %}
   <!-- Carousel Hero -->
-  <div class="container hero">
-    <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
-      <div class="carousel-inner">
-        <div class="carousel-item active" data-bs-interval="15000">
-          <img src="..." class="d-block w-100" alt="...">
+  <div class="container-fluid hero-wrapper">
+    <div class="container-fluid hero">
+      <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active" data-bs-interval="20000">
+            <img src="{{ url_for('static', filename='img/header-img.png') }}" class="d-block w-100 img" alt="...">
+          </div>
+          <div class="carousel-item" data-bs-interval="20000">
+            <img src="{{ url_for('static', filename='img/nationals-greenville-united.png') }}" class="d-block img w-100" alt="...">
+          </div>
+          <div class="carousel-item" data-bs-interval="20000">
+            <img src="{{ url_for('static', filename='img/youth-skills-camp.jpg') }}" class="d-block w-100 img" alt="...">
+          </div>
         </div>
-        <div class="carousel-item" data-bs-interval="15000">
-          <img src="..." class="d-block w-100" alt="...">
-        </div>
-        <div class="carousel-item" data-bs-interval="15000">
-          <img src="..." class="d-block w-100" alt="...">
-        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
       </div>
-      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Previous</span>
-      </button>
-      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Next</span>
-      </button>
     </div>
   </div>
-
-  <!-- Spotlight Articles -->
+  <!-- Spotlight Section -->
   <div class="container py-4">
     <h2 class="py-2">Spotlight</h2>
     <div class="row g-3" data-masonry='{"percentPosition": true }'>
       {% for card in cards %}
-      <div class="col-md-6 col-lg-4">
-        <div class="card" style="width: 18rem;">
+      <div class="col-lg-4">
+        <div class="card mx-auto" style="max-width: 18rem;">
           <img src="{{ card.img_src }}" class="card-img-top " alt="{{ card.img_title }}">
           <div class="card-body">
             <h5 class="card-title">{{ card.title }}</h5>
             <p class="card-text">{{ card.text }}</p>
-            <a href="{{ card.link_url }}" class="btn btn-primary">{{ card.link_text }}</a>
+            <!-- <a href="{{ card.link_url }}" class="btn btn-primary">Read More</a> -->
           </div>
         </div>
       </div>
       {% endfor %}
-      <div class="col-md-6 col-lg-4">
+    </div>
+  </div>
+
+  <!-- News Section -->
+  <!-- <div class="container py-4">
+    <h2>News</h2>
+    <div class="row g-3" data-masonry='{"percentPosition": true }'>
+      {% for card in cards %}
+      <div class="col-md-6 col-lg-3">
         <div class="card" style="width: 18rem;">
           <img src="..." class="card-img-top" alt="...">
           <div class="card-body">
@@ -56,7 +65,8 @@
           </div>
         </div>
       </div>
-      <div class="col-md-6 col-lg-4">
+      {% endfor %}
+      <div class="col-md-6 col-lg-4 col-xl-3">
         <div class="card" style="width: 18rem;">
           <img src="..." class="card-img-top" alt="...">
           <div class="card-body">
@@ -66,7 +76,27 @@
           </div>
         </div>
       </div>
-      <div class="col-md-6 col-lg-4">
+      <div class="col-md-6 col-lg-4 col-xl-3">
+        <div class="card" style="width: 18rem;">
+          <img src="..." class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <a href="#" class="btn btn-primary">Go somewhere</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4 col-xl-3">
+        <div class="card" style="width: 18rem;">
+          <img src="..." class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <a href="#" class="btn btn-primary">Go somewhere</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4 col-xl-3">
         <div class="card" style="width: 18rem;">
           <img src="..." class="card-img-top" alt="...">
           <div class="card-body">
@@ -77,12 +107,7 @@
         </div>
       </div>
     </div>
-  </div>
-
-  <!-- News Section -->
-  <div class="container py-4">
-    <h2>News</h2>
-  </div>
+  </div> -->
   
   <!-- Social Media Section -->
   <div class="container py-4">
@@ -103,7 +128,7 @@
     </ul>
     <div class="tab-content" id="socialTabsContent">
       <div class="tab-pane fade show active" id="twitter-tab-pane" role="tabpanel" aria-labelledby="twitter-tab" tabindex="0">
-        twitter
+        <a class="twitter-timeline text-decoration-none py-3" data-height="700" href="https://twitter.com/GreenvilleUtd?ref_src=twsrc%5Etfw">Tweets by GreenvilleUtd</a>
       </div>
       <div class="tab-pane fade" id="facebook-tab-pane" role="tabpanel" aria-labelledby="facebook-tab" tabindex="0">
         facebook
@@ -119,7 +144,10 @@
   
   <!-- Partners -->
   <div class="container-fluid py-4" id="partners-div">
-    <h2 class="text-center">Our Partners</h2>
+    <div class="container-sm">
+      <h2 class="text-center">Our Partners</h2>
+      
+    </div>
   </div>
   
   <!-- Local Sponsors -->
@@ -148,5 +176,5 @@
 {% endblock %}
 
 {% block js %}
-  
+  <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 {% endblock %}

@@ -5,6 +5,15 @@
     --gray-yellow: #b5934a;
     --darker-green: #173119;
     --opaque-bg: rgba(255, 255, 255, 0.85);
+    --off-white: rgb(250,250,250);
+}
+.dropdown-menu {
+    background-color: var(--gufc-yellow);
+    border: none
+}
+.dropdown-item:hover {
+    background-color: var(--gufc-green);
+    color: var(--gufc-yellow);
 }
 p {
     padding: 1rem 0 1rem 0;

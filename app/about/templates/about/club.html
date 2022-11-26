@@ -6,7 +6,53 @@
 
 {% block main %}
   {{ super() }}
-
+  <div class="container-fluid">
+    <div class="container-sm">
+      <h1 class="text-center py-3">About Our Club</h1>
+      <p>
+        The Club is now in the third season of competition in the FFL, in which the brand has been steadily growing and building a fan base within the <a href="https://www.greenvillenc.gov/" class="text-decoration-none">City of Greenville NC</a>.  The club has now shifted its focus and efforts to join a more competitive league in the US Soccer pyramid (<a href="https://www.npsl.com/" class="text-decoration-none" target="_blank">NPSL</a>). The four founders are Aaron Okwei (Director of Football), Luke Staats (Vice President Marketing), Fernando Zuniga (Vice President Operations), and Michael McCarren (President). They have a combined experience of over twenty plus years in the collegiate and professional ranks of soccer. In addition, they have a high level of experience in business development and execution.
+      </p>
+      <p>
+        Since its inception, Greenville United has not only established itself as a competitive team in the region but has also proved to be a valuable addition to the youth in the community and its surrounding areas. The club partnered with various non-profits in the summer of 2022 to execute soccer camps for children ages 5-12, free of charge.  The club also partnered with parks and recreation departments in the region to hold soccer camps throughout the year at a low cost to participants.  In total, Greenville united served over 250 children in 2022.  Greenville United is committed to establishing a positive influence in our local youth through the game of soccer.
+      </p>
+      <p>
+        Young men will have a channel within the city to play at a high level and the brand has an opportunity to establish a strong fan base for the City of Greenville.  A <a href="https://www.npsl.com/" class="text-decoration-none" target="_blank">NPSL</a> level team will also attract players from outside to move to Greenville with the goal to advance their soccer career.  The Club also has aspiration to establish a first woman’s team in 2026.   With the World Cup coming to the USA and the fact that soccer is one of the fastest growing sports in the states the opportunity to utilize the game is endless for the city of Greenville.  Over the last 2 years the partners and several volunteers have been connecting with many leaders throughout the community to rally to be prepared for entering the NPLS for the 2023 season.
+      </p>
+      <p>
+        In 2022 the Greenville United Football club established a board of Directors.  The board of directors helps the organization with business plan execution, key decisions, and community engagement. 
+      </p>
+      <ul>
+        <!-- TODO: link to preferred social media of board member -->
+        <li><b>Nichole Alley</b>, Practice Administrator, MBA, SHRM-SCP, Orthopedics East and Sports Medicine Center</li>
+        <li><b>Daniel Van Liere</b>, Director Government AECU Health</li>
+        <li><b>Carlos Anciano</b>, Associate Professor & Chief, Division of Thoracic & Foregut Surgery, ECU Health</li>
+        <li><b>Trey Goodson</b>, Director of Marketing and Communications, NC East Alliance </li>
+        <li><b>Christine Rooney</b>, Director of Sales, Farell Finch</li>
+      </ul>
+    </div>
+    <div class="container-sm py-4">
+      <!-- <hr> -->
+    </div>
+    <div class="container-sm">
+      <h1 class="text-center border-bottom mx-5 pb-3">Club Leadership</h1>
+        <div class="row g-4 py-4">
+          {% for owner in owners %}
+          <div class="col-lg-3">
+            <div class="card mx-auto">
+              <img src="{{ owner.img_src }}" class="card-img-top img-fluid" alt="Owner Image">
+              <div class="card-body">
+                <h5 class="card-title">{{ owner.name }}</h5>
+                <h6 class="card-subtitle mb-2 text-muted">{{ owner.position }}</h6>
+                <p class="card-text">{{ owner.description }}</p>
+                <!-- <a href="#" class="btn btn-primary">Read More</a> -->
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
 {% endblock %}
 
 {% block js %}

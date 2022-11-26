@@ -1,3 +1,24 @@
+/* Carousel Hero Stylings */
+@media (max-width: 575.98px) {
+    .hero-wrapper {
+        display: none;
+    }
+}
+.carousel-item > img {
+    background-size: cover;
+    
+}
+
+/* Spotlight Stylings */
+.read-btn {
+    background-color: var(--gufc-green);
+    color: var(--gufc-yellow);
+}
+
+/* Social Media Stylings */
+.tab-pane {
+    min-height: 700px;
+}
 
 /* Partners Stylings */
 #partners-div {
@@ -10,8 +31,6 @@
     background-color: var(--gufc-yellow);
     color: var(--gufc-green);
 }
-
-
 
 /* Newsletter Stylings */
 #newsletter {

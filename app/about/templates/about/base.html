@@ -6,19 +6,22 @@
 
 {% block main %}
     <!-- Hero Title w/ background image -->
-    <div class="hero">
+    <div class="hero container-fluid py-5" style="background-image: url({{ url_for('static', filename='img/main-header.jpg') }});">
         <div class="container-sm text-center py-5">
-            <h1 class="display-6 border-bottom">{{ title }}</h1>
+            <h1 class="display-6">{{ title }}</h1>
         </div>
     </div>
     <!-- Sub-nav bar -->
-    <div class="container-fluid">
+    <div class="container-fluid sub-nav py-4">
         <div class="container-sm">
             <ul class="nav justify-content-center">
                 <li class="nav-item">
                   <a class="nav-link" href="{{ url_for('about.show_index') }}">About</a>
                 </li>
                 <div class="vr"></div>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('about.show_vmc') }}">Vission, Mission, Core</a>
+                  </li>
                 <li class="nav-item">
                   <a class="nav-link" href="{{ url_for('about.show_league') }}">League</a>
                 </li>
@@ -35,13 +38,17 @@
         </div>
     </div>
     <!-- Breadcrumbs object -->
-    <nav aria-label="breadcrumb" class="py-3">
-        <ol class="breadcrumb">
-          <li class="breadcrumb-item"><a href="{{ url_for('about.show_index') }}">About</a></li>
-          <li class="breadcrumb-item active" aria-current="page">{{ title }}</li>
-        </ol>
-    </nav>
-
+    <div class="container-sm py-4">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                {% if title == 'About' %}
+                {% else %}
+                <li class="breadcrumb-item"><a class="text-decoration-none" href="{{ url_for('about.show_index') }}">About</a></li>
+                {% endif %}
+                <li class="breadcrumb-item active" aria-current="page">{{ title }}</li>
+            </ol>
+        </nav>
+    </div>
 {% endblock %}
 
 {% block js %}
