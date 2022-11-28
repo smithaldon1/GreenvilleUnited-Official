@@ -1,0 +1,25 @@
+#uc-img {
+    max-height: 40rem;
+}
+#newsletter {
+    background-color: var(--gufc-yellow);
+    border: none;
+    box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
+    color: var(--gufc-green);
+    border-radius: 1.0375em;
+}
+#subtn {
+    border-radius: 5px;
+    background: var(--gufc-yellow);
+    box-shadow: 1px 1px 3px #d5ad58,
+                -1px -1px 3px #ffeb78;
+    color: var(--gufc-green);
+}
+#subtn:active {
+    background: linear-gradient(145deg, #e1b85e, #ffda6f);
+    border: none;
+}
+#subtn:hover {
+    transform: scale(.95);
+    transition: all .2s ease;
+}

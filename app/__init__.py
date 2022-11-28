@@ -1,10 +1,14 @@
 import os
 import logging
+import tweepy
 from flask import Flask, render_template
 from flask.logging import default_handler
+from flask_sqlalchemy import SQLAlchemy
 from logging.handlers import RotatingFileHandler
 from jinja2 import ChoiceLoader, FileSystemLoader
 
+
+db = SQLAlchemy()
 
 ### Application Factory ### 
 def create_app():
@@ -52,6 +56,7 @@ def register_blueprints(app):
     app.register_blueprint(store_bp, url_prefix='/store')
     
 def initialize_extensions(app):
+    db.init_app(app)
     pass
 
 def register_error_handlers(app):

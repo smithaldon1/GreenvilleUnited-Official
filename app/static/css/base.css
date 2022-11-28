@@ -2,6 +2,44 @@
 :root {
     --gufc-green: #224A24;
     --gufc-yellow: #FACC68;
+    --gray-yellow: #b5934a;
     --darker-green: #173119;
     --opaque-bg: rgba(255, 255, 255, 0.85);
+    --off-white: rgb(250,250,250);
+}
+.dropdown-menu {
+    background-color: var(--gufc-yellow);
+    border: none
+}
+.dropdown-item:hover {
+    background-color: var(--gufc-green);
+    color: var(--gufc-yellow);
+}
+p {
+    padding: 1rem 0 1rem 0;
+}
+.schedule-btn {
+    border: none;
+    border-radius: 10px;
+    background-color: var(--gufc-green);
+    color: var(--gufc-yellow);
+}
+main {
+    color: var(--gufc-green);
+}
+.nav-link {
+    color: var(--gufc-green);
+}
+.footer-link {
+    color: var(--gufc-yellow);
+}
+.footer-link:hover {
+    color: var(--gray-yellow);
+}
+.brand-ico {
+    filter: invert(81%) sepia(54%) saturate(493%) hue-rotate(337deg) brightness(100%) contrast(96%);   
+}
+.brand-ico:hover, .navbar-brand:hover, .social-nav:hover, .foot-logo:hover {
+    transform: scale(1.15);
+    transition: all 0.2s ease;
 }

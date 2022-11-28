@@ -13,10 +13,15 @@ class Config:
     TESTING = False
     WTF_CSRF_ENABLED = True
     
+    # Twitter Config
+    BEARER_TOKEN = os.getenv('BEARER_TOKEN', default=None)
+    
     # Settings applicable to all environments
     SECRET_KEY = os.getenv('SECRET_KEY', default='Its a trap')
     
     SQLALCHEMY_TRACK_MODIFICATIONS = False
+    SQLALCHEMY_DATABASE_URI = "sqlite:///" + os.path.join(basedir, 'default.db')
+    
     
 class DevelopmentConfig(Config):
     DEBUG = True
@@ -27,4 +32,4 @@ class TestingConfig(Config):
     SQLALCHEMY_DATABASE_URI = "sqlite:///" + os.path.join(basedir, 'test.db')
     
 class ProductionConfig(Config):
-    SQLALCHEMY_DATABASE_URI = os.getenv('PROD_DATABASE_URI', default="sqlite:///" + os.path.join(basedir, 'prod.db'))
+    SQLALCHEMY_DATABASE_URI = "sqlite:///" + os.path.join(basedir, 'prod.db')

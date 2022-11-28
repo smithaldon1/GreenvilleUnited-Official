@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+
+{% block main %}
+<div class="container-fluid mt-0" style="background-color: var(--gufc-green);">
+    <footer class="row row-cols-1 row-cols-sm-2 row-cols-md-5 pt-4">
+      <div class="col mb-3 ms-2">
+        <h5><a class='text-decoration-none footer-link' href="{{ url_for('about.show_index')}}">About</a></h5>
+        <ul class="nav flex-column">
+          <li class="nav-item mb-2"><a href="{{ url_for('about.show_vmc')}}" class="nav-link p-0 footer-link">Vision, Mission, Core</a></li>
+          <li class="nav-item mb-2"><a href="{{ url_for('about.show_league')}}" class="nav-link p-0 footer-link">League</a></li>
+          <li class="nav-item mb-2"><a href="{{ url_for('about.show_club')}}" class="nav-link p-0 footer-link">Club</a></li>
+          <li class="nav-item mb-2"><a href="{{ url_for('about.show_team')}}" class="nav-link p-0 footer-link">Team</a></li>
+          <li class="nav-item mb-2"><a href="{{ url_for('about.show_players')}}" class="nav-link p-0 footer-link">Players</a></li>
+        </ul>
+      </div>
+  
+      <div class="col mb-3">
+        <h5><a class='text-decoration-none footer-link' href="{{ url_for('community.show_index')}}">Community</a></h5>
+        <ul class="nav flex-column">
+          <li class="nav-item mb-2"><a href="{{ url_for('community.show_youth')}}" class="nav-link p-0 footer-link">Youth</a></li>
+          <li class="nav-item mb-2"><a href="{{ url_for('community.show_news')}}" class="nav-link p-0 footer-link">News</a></li>
+          <li class="nav-item mb-2"><a href="{{ url_for('community.show_schedule')}}" class="nav-link p-0  footer-link">Schedule</a></li>
+        </ul>
+      </div>
+  
+      <div class="col mb-3">
+        <h5><a class='text-decoration-none footer-link' href="{{ url_for('store.show_index') }}">Store</a></h5>
+        <ul class="nav flex-column">
+          <li class="nav-item mb-2"><a href="{{ url_for('store.show_tickets') }}" class="nav-link p-0 footer-link">Tickets</a></li>
+          <li class="nav-item mb-2"><a href="{{ url_for('store.show_team_store') }}" class="nav-link p-0 footer-link">Team Store</a></li>
+          <li class="nav-item mb-2"><a href="{{ url_for('store.show_support') }}" class="nav-link p-0 footer-link">Support</a></li>
+          <li class="nav-item mb-2"><a href="{{ url_for('store.show_terms') }}" class="nav-link p-0 footer-link">Terms & Conditions</a></li>
+          <li class="nav-item mb-2"><a href="{{ url_for('store.show_pp') }}" class="nav-link p-0 footer-link">Privacy Policy</a></li>
+        </ul>
+      </div>
+  
+      <div class="col mb-3">
+        <h5><a class='text-decoration-none footer-link' href="{{ url_for('partners.show_index')}}">Partners</a></h5>
+        <ul class="nav flex-column">
+          <li class="nav-item mb-2"><a href="{{ url_for('partners.show_local_sponsors')}}" class="nav-link p-0  footer-link">Local Sponsors</a></li>
+          <li class="nav-item mb-2"><a href="{{ url_for('partners.show_partner')}}" class="nav-link p-0  footer-link">Become a Partner</a></li>
+          <li class="nav-item mb-2"><a href="{{ url_for('partners.show_donation')}}" class="nav-link p-0  footer-link">Make a Donation</a></li>
+          <li class="nav-item mb-2"><a href="{{ url_for('partners.show_donation_pp')}}" class="nav-link p-0  footer-link">Donation Policy</a></li>
+        </ul>
+      </div>
+      <div class="col mb-3">
+        <h5><a class='text-decoration-none footer-link' href="{{ url_for('contact.show_index')}}">Contact Us</a></h5>
+        <ul class="nav flex-column">
+          <li class="nav-item mb-2 p-0 "><a href="mailto:admin@greenvilleutd.com" class="nav-link p-0  text-decoration-none footer-link">Website Support</a></li>
+          <li class="nav-item mb-2 p-0 "><a href="mailto:store@greenvilleutd.com" class="nav-link p-0  text-decoration-none footer-link">Merchandise Support</a></li>
+          <li class="nav-item mb-2 p-0 "><a href="mailto:club@greenvilleutd.com" class="nav-link p-0  text-decoration-none footer-link">Club Support</a></li>
+        </ul>
+      </div>
+    </footer>
+</div>
+{% endblock %}
