@@ -7,9 +7,13 @@
 
 {% block main %}
   {{ super() }}
-  <div class="container">
-    <h1 class="py-4">League.html</h1>
-    <p>About league page</p>
+  <div class="container-sm">
+    <div class="container text-center py-3">
+      <img src="{{ url_for('static', filename='img/FFL_Logo.png') }}" alt="First Flight League Logo" class="img">
+    </div>
+    <h1 class="py-4 text-center">First Flight League</h1>
+    <p>Currently, Greenville United Football Club is a proud member of the <a class='text-decoration-none' href="https://www.firstflightleague.org/" target="_blank">First Flight League</a> (FFL) in North Carolina. The FFL is a fairly new minor league european football league for the eastern and piedmont regions of North Carolina, with the 2021 season being their inaugural season.</p>
+    <p class="py-2">For more information on the league, please visit the website, <a class='text-decoration-none' href="https://www.firstflightleague.org/" target="_blank">here</a>.</p>
   </div>
 {% endblock %}
 

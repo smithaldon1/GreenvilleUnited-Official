@@ -6,7 +6,49 @@
 
 {% block main %}
   {{ super() }}
+  <div class="container-sm">
+    <div class="section">
+      <h1 class="">Team Composition</h1>
+      <div class="row g-4 py-4">
+        {% for player in players %}
+        <div class="col-lg-3">
+          <div class="card mx-auto">
+            <img src="{{ player.img_src }}" class="card-img-top img-fluid" alt="{{ player.name }} Image">
+            <div class="card-body">
+              <h5 class="card-title">{{ player.name }}</h5>
+              <h6 class="card-subtitle mb-2 text-muted">{{ player.position }}</h6>
+              <p class="card-text">{{ player.description }}</p>
+              <!-- <a href="#" class="btn btn-primary">Read More</a> -->
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+    <div class="section">
+      <h1>Support Staff</h1>
+      <p>Without the help from our amazing staff, this club would not be possible.</p>
+      <!-- For each team member, list their card -->
+      <div class="row g-4 py-4">
+        {% for employee in employees %}
+        <div class="col-lg-3">
+          <div class="card mx-auto">
+            <img src="{{ employee.img_src }}" class="card-img-top img-fluid" alt="{{ employee.name }} Image">
+            <div class="card-body">
+              <h5 class="card-title">{{ employee.name }}</h5>
+              <h6 class="card-subtitle mb-2 text-muted">{{ employee.position }}</h6>
+              <p class="card-text">{{ employee.description }}</p>
+              <!-- <a href="#" class="btn btn-primary">Read More</a> -->
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+    <div class="section">
 
+    </div>
+  </div>
 {% endblock %}
 
 {% block js %}

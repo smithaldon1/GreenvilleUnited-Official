@@ -6,8 +6,42 @@
 
 {% block main %}
   <div class="container-sm">
-    <h1 class="py-2 text-center">Site Map</h1>
-    
+    <h1 class="py-4 text-center">Site Map</h1>
+    <div class="container-sm py-4">
+      <ul>
+        <li><a class="text-decoration-none" href="{{ url_for('main.show_index') }}">Home</a></li>
+        <li><a class="text-decoration-none" href="{{ url_for('main.show_site_map') }}">Site Map</a> (this page!)</li>
+        <li><a class="text-decoration-none" href="{{ url_for('main.show_pp') }}">Privacy Policy</a></li>
+        <li><a class="text-decoration-none" href="{{ url_for('about.show_index') }}">About</a></li>
+        <ul>
+          <li><a class="text-decoration-none" href="{{ url_for('about.show_vmc') }}">Vision, Mission, Core</a></li>
+          <li><a class="text-decoration-none" href="{{ url_for('about.show_league') }}">League</a></li>
+          <li><a class="text-decoration-none" href="{{ url_for('about.show_club') }}">Club</a></li>
+          <li><a class="text-decoration-none" href="{{ url_for('about.show_team') }}">Team</a></li>
+          <li><a class="text-decoration-none" href="{{ url_for('about.show_players') }}">Players</a></li>
+        </ul>
+        <li><a class="text-decoration-none" href="{{ url_for('community.show_index') }}">Community</a></li>
+        <ul>
+          <li><a class="text-decoration-none" href="{{ url_for('community.show_youth') }}">Youth</a></li>
+          <li><a class="text-decoration-none" href="{{ url_for('community.show_news') }}">News</a></li>
+          <li><a class="text-decoration-none" href="{{ url_for('community.show_schedule') }}">Schedule</a></li>
+        </ul>
+        <li><a class="text-decoration-none" href="{{ url_for('store.show_index') }}">Store</a></li>
+        <ul>
+          <li><a class="text-decoration-none" href="{{ url_for('store.show_tickets') }}">Tickets</a></li>
+          <li><a class="text-decoration-none" href="{{ url_for('store.show_team_store') }}">Team Store</a></li>
+          <li><a class="text-decoration-none" href="{{ url_for('store.show_support') }}">Support</a></li>
+          <li><a class="text-decoration-none" href="{{ url_for('store.show_terms') }}">Terms and Conditions</a></li>
+        </ul>
+        <li><a class="text-decoration-none" href="{{ url_for('partners.show_index') }}">Partners</a></li>
+        <ul>
+          <li><a class="text-decoration-none" href="{{ url_for('partners.show_local_sponsors') }}">Local Sponsors</a></li>
+          <li><a class="text-decoration-none" href="{{ url_for('partners.show_partner') }}">Become A Partner</a></li>
+          <li><a class="text-decoration-none" href="{{ url_for('partners.show_donation') }}">Make A Donation</a></li>
+          <li><a class="text-decoration-none" href="{{ url_for('partners.show_donation_pp') }}">Donation Policy</a></li>
+        </ul>
+      </ul>
+    </div>
   </div>
 {% endblock %}
 

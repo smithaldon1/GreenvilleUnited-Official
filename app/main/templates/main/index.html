@@ -12,12 +12,27 @@
         <div class="carousel-inner">
           <div class="carousel-item active" data-bs-interval="20000">
             <img src="{{ url_for('static', filename='img/header-img.png') }}" class="d-block w-100 img" alt="...">
+            <div class="carousel-caption pb-4">
+              <h1>Come to a game!</h1>
+              <p>Our game day festivals have fun for the entire family. Everyone is welcome to join in the legendary festivities!</p>
+              <a href="{{ url_for('community.show_schedule') }}" class="btn carousel-btn">See Schedule</a>
+            </div>
           </div>
           <div class="carousel-item" data-bs-interval="20000">
             <img src="{{ url_for('static', filename='img/nationals-greenville-united.png') }}" class="d-block img w-100" alt="...">
+            <div class="carousel-caption pb-4">
+              <h1>Support our team!</h1>
+              <p>Visit our team store to help support our club and players. A portion of our proceeds are invested back into the community.</p>
+              <a href="{{ url_for('store.show_index') }}" class="btn carousel-btn">Shop Now</a>
+            </div>
           </div>
           <div class="carousel-item" data-bs-interval="20000">
             <img src="{{ url_for('static', filename='img/youth-skills-camp.jpg') }}" class="d-block w-100 img" alt="...">
+            <div class="carousel-caption pb-4">
+              <h1>Join our Youth Skills camp!</h1>
+              <p>Sign your children up for our skills camps during the summer! Hours of learning and fun with hardworking, skilled players.</p>
+              <a href="{{ url_for('community.show_youth') }}" class="btn carousel-btn">Learn More</a>
+            </div>
           </div>
         </div>
         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
@@ -32,12 +47,12 @@
     </div>
   </div>
   <!-- Spotlight Section -->
-  <div class="container py-4">
+  <div class="container py-5">
     <h2 class="py-2">Spotlight</h2>
-    <div class="row g-3" data-masonry='{"percentPosition": true }'>
+    <div class="row g-3 py-4">
       {% for card in cards %}
       <div class="col-lg-4">
-        <div class="card mx-auto" style="max-width: 18rem;">
+        <div class="card mx-auto" style="max-width: 20rem;">
           <img src="{{ card.img_src }}" class="card-img-top " alt="{{ card.img_title }}">
           <div class="card-body">
             <h5 class="card-title">{{ card.title }}</h5>
@@ -126,18 +141,18 @@
         <button class="nav-link" id="youtube-tab" data-bs-toggle="tab" data-bs-target="#youtube-tab-pane" type="button" role="tab" aria-controls="youtube-tab-pane" aria-selected="false">YouTube</button>
       </li>
     </ul>
-    <div class="tab-content" id="socialTabsContent">
+    <div class="tab-content py-3" id="socialTabsContent">
       <div class="tab-pane fade show active" id="twitter-tab-pane" role="tabpanel" aria-labelledby="twitter-tab" tabindex="0">
         <a class="twitter-timeline text-decoration-none py-3" data-height="700" href="https://twitter.com/GreenvilleUtd?ref_src=twsrc%5Etfw">Tweets by GreenvilleUtd</a>
       </div>
       <div class="tab-pane fade" id="facebook-tab-pane" role="tabpanel" aria-labelledby="facebook-tab" tabindex="0">
-        facebook
+        Facebook Feed Unavailable. Please try again later... 
       </div>
       <div class="tab-pane fade" id="instagram-tab-pane" role="tabpanel" aria-labelledby="instagram-tab" tabindex="0">
-        instagram
+        Instagram Feed Unavailable. Please try again later... 
       </div>
       <div class="tab-pane fade" id="youtube-tab-pane" role="tabpanel" aria-labelledby="youtube-tab" tabindex="0">
-        youtube
+        YouTube Feed Unavailable. Please try again later... 
       </div>
     </div>
   </div>
@@ -146,16 +161,28 @@
   <div class="container-fluid py-4" id="partners-div">
     <div class="container-sm">
       <h2 class="text-center">Our Partners</h2>
-      
+      <div class="container text-center py-4">
+        {% for partner in partners %}
+        <img src="{{ partner.img_src }}" alt="{{ partner.name }}" class="partner-logos">
+        {% endfor %}
+      </div>
     </div>
   </div>
   
   <!-- Local Sponsors -->
   <div class="container-fluid py-4" id="sponsors-div">
-    <h2 class="text-center">Local Sponsors</h2>
+    <div class="container-sm">
+      <h2 class="text-center">Local Sponsors</h2>
+      <div class="container text-center py-4">
+        {% for sponsor in sponsors %}
+        <img src="{{ sponsor.img_src }}" alt="{{ sponsor.name }}" class="sponsor-logos">
+        {% endfor %}
+      </div>
+    </div>
+    
   </div>
 
-  <div class="container py-4 newsletter">
+  <div class="container pt-5 newsletter">
     <div class="card text-center p-3" id="newsletter">
       <div class="card-body">
         <h5 class="card-title">Team Newsletter</h5>
