@@ -6,13 +6,19 @@
 {% endblock %}
 
 {% block main %}
-<div class="alert alert-danger mt-0 text-center" role="alert">
+<!-- <div class="alert alert-danger mt-0 text-center" role="alert">
   Caution! This donation form is <strong>NOT</strong> active and any donations you attempt will not be processed. Please contact <a href="mailto:admin@greenvilleutd.com" class="text-decoration-none">admin@greenvilleutd.com</a> for assistance.
-</div>
+</div> -->
 <div class="container-fluid">
   <div class="container py-3 text-center">
-    <h1 class="display-3 py-2">Make a donation!</h1>
+    <h1 class="display-5 pt-5 pb-2">Make a donation!</h1>
     <p class="text-muted">Please complete the form below to make a donation. <br> All form fields are required, unless otherwise stated.</p>
+    <div class="progress" style="height: 3rem;">
+      <div class="progress-bar" role="progressbar" aria-label="Donation Progress Bar" style="width: {{ percent_of_goal }}%; background-color: var(--gufc-green); color: var(--gufc-yellow);" aria-valuenow="{{ percent_of_goal }}" aria-valuemin="0" aria-valuemax="100"><b>{{ total }}</b></div>
+      <div class="text-center d-inline-flex align-items-center">
+        <b class="px-5">{{ goal }}</b>
+      </div>
+    </div>
   </div>
   <div class="container">
     <h3 class="py-3">Donation Amount</h3>
@@ -132,13 +138,14 @@
             <div class="form-floating">
               <select class='form-select' name="expy" id="expy" required>
                 <option value=''>Year</option>
-                <option value='23'>2023</option>
-                <option value='24'>2024</option>
-                <option value='25'>2025</option>
-                <option value='26'>2026</option>
-                <option value='27'>2027</option>
-                <option value='28'>2028</option>
-                <option value='29'>2029</option>
+                <option value='2022'>2022</option>
+                <option value='2023'>2023</option>
+                <option value='2024'>2024</option>
+                <option value='2025'>2025</option>
+                <option value='2026'>2026</option>
+                <option value='2027'>2027</option>
+                <option value='2028'>2028</option>
+                <option value='2029'>2029</option>
               </select>
               <label for="expy">Exp. Year</label> 
               <div class="invalid-feedback">
@@ -158,7 +165,7 @@
           <div class="col-md">
             <div class="form-floating">
               <input type="text" name="zip" id="zip" class="form-control" maxlength="20" placeholder="XXXXX" required>
-              <label for="zip">Zip Code</label>
+              <label for="zip">Billing Zip Code</label>
               <div class="invalid-feedback">
                 Billing zip code is required
               </div>
@@ -166,7 +173,7 @@
           </div>
         </div>
         <div class="row pb-1">
-          <img class="rounded float-start" src="{{ url_for('static', filename='img/payment-logos.JPG') }}" alt="accepted forms of payment" id="pay-logos" style="height: 10rem;">
+          <img class="rounded float-start" src="{{ url_for('static', filename='img/payment-logos.JPG') }}" alt="accepted forms of payment" id="pay-logos" style="height: 6rem;">
         </div>
       </div>
       <hr class="border-2 opacity-75 hrs">
@@ -200,5 +207,5 @@
 {% endblock %}
 
 {% block js %}
-  
+<script src="{{ url_for('static', filename='js/donate.js') }}"></script>
 {% endblock %}

@@ -39,7 +39,7 @@
           {% for owner in owners %}
           <div class="col-lg-3">
             <div class="card mx-auto">
-              <img src="{{ owner.img_src }}" class="card-img-top img-fluid" alt="Owner Image">
+              <img src="{{ owner.img_src }}" class="card-img-top img-fluid" style="max-height: 20rem;" alt="Owner Image">
               <div class="card-body">
                 <h5 class="card-title">{{ owner.name }}</h5>
                 <h6 class="card-subtitle mb-2 text-muted">{{ owner.position }}</h6>

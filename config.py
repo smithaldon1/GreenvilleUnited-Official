@@ -25,6 +25,8 @@ class Config:
     
 class DevelopmentConfig(Config):
     DEBUG = True
+    API_LOGIN_ID = os.getenv('DEV_API_LOGIN_ID')
+    TRANSACTION_KEY = os.getenv('DEV_TRANSACTION_KEY')
     
 class TestingConfig(Config):
     TESTING = True
@@ -33,3 +35,5 @@ class TestingConfig(Config):
     
 class ProductionConfig(Config):
     SQLALCHEMY_DATABASE_URI = "sqlite:///" + os.path.join(basedir, 'prod.db')
+    API_LOGIN_ID = os.getenv('PROD_API_LOGIN_ID')
+    TRANSACTION_KEY = os.getenv('PROD_TRANSACTION_KEY')

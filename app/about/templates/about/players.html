@@ -7,11 +7,27 @@
 {% block main %}
   {{ super() }}  
   <div class="container">
-    <h1 class="py-4">Players.html</h1>
-    <p>About Players page</p>
+    <div class="section">
+      <h1 class="">Team Roster</h1>
+      <div class="row g-4 py-4">
+        {% for player in players %}
+        <div class="col-lg-3">
+          <div class="card mx-auto" style="max-width: 18rem">
+            <img src="{{ player.img_src }}" class="card-img-top img-fluid" alt="{{ player.name }} Image" style="height: 22rem; width: 18rem;">
+            <div class="card-body">
+              <h5 class="card-title">{{ player.name }}</h5>
+              <h6 class="card-subtitle mb-2 text-muted">{{ player.position }}</h6>
+              <p class="card-text">{{ player.description }}</p>
+              <!-- <a href="#" class="btn btn-primary">Read More</a> -->
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
   </div>
 {% endblock %}
 
 {% block js %}
   {{ super() }}
-{% endblock %}\
+{% endblock %}
