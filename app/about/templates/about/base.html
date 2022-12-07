@@ -20,7 +20,7 @@
                 </li>
                 <div class="vr"></div>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ url_for('about.show_vmc') }}">Vission, Mission, Core</a>
+                    <a class="nav-link" href="{{ url_for('about.show_vmc') }}">Vision, Mission, Core</a>
                   </li>
                 <li class="nav-item">
                   <a class="nav-link" href="{{ url_for('about.show_league') }}">League</a>
@@ -31,9 +31,9 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{{ url_for('about.show_team') }}">Team</a>
                 </li>
-                <li class="nav-item">
+                <!-- <li class="nav-item">
                     <a class="nav-link" href="{{ url_for('about.show_players') }}">Players</a>
-                </li>
+                </li> -->
             </ul>
         </div>
     </div>
@@ -52,5 +52,6 @@
 {% endblock %}
 
 {% block js %}
-  
+  {{ super() }}
+  <script src="{{ url_for('static', filename='js/about-base.js') }}"></script>
 {% endblock %}

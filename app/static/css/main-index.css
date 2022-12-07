@@ -43,8 +43,8 @@
 
 /* Partners Stylings */
 #partners-div {
-    color: var(--gufc-yellow);
-    background-color: var(--gufc-green);
+    color: var(--gufc-green);
+    background-color: var(--gufc-yellow);
 }
 .partner-logos, .sponsor-logos {
     max-height: 200px;
@@ -53,8 +53,8 @@
 
 /* Local Sponsors Stylings */
 #sponsors-div {
-    background-color: var(--gufc-yellow);
-    color: var(--gufc-green);
+    background-color: var(--gufc-green);
+    color: var(--gufc-yellow);
 }
 
 /* Newsletter Stylings */

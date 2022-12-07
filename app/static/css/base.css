@@ -24,6 +24,12 @@ p {
     background-color: var(--gufc-green);
     color: var(--gufc-yellow);
 }
+.donate-btn {
+    border: 1px solid var(--gufc-green);
+    border-radius: 10px;
+    background-color: var(--gufc-green);
+    color: var(--gufc-yellow);
+}
 main {
     color: var(--gufc-green);
 }

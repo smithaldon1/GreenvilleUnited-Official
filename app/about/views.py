@@ -1,7 +1,9 @@
 from . import about_bp
 from flask import render_template, request, redirect, url_for, make_response
-from ..models import db, User, Staff, Player
+from ..models import User
+from sqlalchemy.sql import exists
 from datetime import datetime as dt
+from app import db
 
 
 @about_bp.route('/')
@@ -18,33 +20,33 @@ def show_league():
 @about_bp.route('/vmc')
 def show_vmc():
     title = 'Vision, Mission, Core'
+    value1 = {
+        'name': 'Accountability',
+        'img_src': url_for('static', filename='img/user-check.svg')
+    }
+    value2 = {
+        'name': 'Diversity Inclusion',
+        'img_src': url_for('static', filename='img/cell.svg')
+    }
+    value3 = {
+        'name': 'Customer Focused',
+        'img_src': url_for('static', filename='img/store.svg')
+    }
+    value4 = {
+        'name': 'Teamwork',
+        'img_src': url_for('static', filename='img/thumbs-up.svg')
+    }
+    value5 = {
+        'name': 'Continuous Improvement',
+        'img_src': url_for('static', filename='img/folder-upload.svg')
+    }
+    values = [value1, value2, value3, value4, value5]
     # return redirect(url_for('about.show_uc_page'))
-    return render_template('about/vmc.html', title=title)
+    return render_template('about/vmc.html', title=title, values=values)
 
 @about_bp.route('/team')
 def show_team():
-    employees = []
-    # return redirect(url_for('about.show_uc_page'))
-    return render_template('about/team.html', title='Team', players=players, employees=employees)
-
-@about_bp.route('/club')
-def show_club():
-    title = 'Club'
-    fernando = {'img_src': url_for('static', filename='img/fernando.png'), 'name': 'Fernando Zuniga', 'position': 'VP of Operations', 'description': "Mr. Zuniga enters his sixth season with the Chowan women's soccer team and fourth as head coach. During the 2020-21 season, Zuniga led the Hawks to one of their best seasons in program history sporting an 8-2-1 overall record and a 5-1-1 league record for second place in the league tables."}
-    
-    aaron = {'img_src': url_for('static', filename='img/aaron.png'), 'name': 'Fernando Zuniga', 'position': 'Director of Football', 'description': "Coach Okwei was born and raised in Osu, located in Accra, Ghana where he graduated from the Middlesbrough Soccer Academy before going on to play for the Desert Warriors who competed in the 2nd tier of Ghanaian football (soccer). Most recently, Okwei played for Greensboro International FC who compete in the UPSL"}
-    
-    luke = {'img_src': url_for('static', filename='img/luke.png'), 'name': 'Luke Staats', 'position': 'VP of Marketing', 'description': "Mr. Staats played four seasons of soccer at Lees-McRae (2008-12). He guided the team to three conference regular season and tournament titles, four straight NCAA Appearances, two trips to the NCAA Division II Sweet 16 and a national championship finalist appearance."}
-    
-    michael = {'img_src': url_for('static', filename='img/michael.png'), 'name': 'Michael McCarren', 'position': 'President', 'description': "Mr. McCarren is a business leader with 24 years of cross-functional experience in areas of business development, engineering, supply management, program management, marketing, and manufacturing. He holds 4 patents, 2 John Deere Presidents awards, 3 John Deere innovation awards, 1 Agritechnica innovation award, and 1 SPI Structure Design Award."}
-    
-    owners = [ fernando, aaron, luke, michael ]
-    
-    # return redirect(url_for('about.show_uc_page'))
-    return render_template('about/club.html', title=title, owners=owners)
-
-@about_bp.route('/players')
-def show_players():
+    # player roster
     a_mbye = {'img_src': url_for('static', filename='img/Abdoulie-Mbye-greenville-united.png'), 'name': 'Abdoulie Mbye', 'position': 'Center Back', 'description': ''}
     a_ibuaka = {'img_src': url_for('static', filename='img/August-Ibuaka-greenville-united.png'), 'name': 'August Ibuaka', 'position': 'Center Back', 'description': ''}
     b_joseph = {'img_src': url_for('static', filename='img/Belony-Joseph-greenville-united.png'), 'name': 'Belony Joseph', 'position': 'Center Back', 'description': ''}
@@ -68,10 +70,38 @@ def show_players():
     v_okafor = {'img_src': url_for('static', filename='img/valentine-okafor-greenville-united.png'), 'name': 'Valentine Okafor', 'position': 'Center Back', 'description': ''}
     v_hernandez = {'img_src': url_for('static', filename='img/victor-hernandez-greenville-united.png'), 'name': 'Victor Hernandez', 'position': 'Center Back', 'description': ''}
     
+    # employees
+    a_smith = {'img_src': url_for('static', filename='img/victor-hernandez-greenville-united.png'), 'name': 'Aldon Smith', 'position': 'Director of Social Media and Engagement', 'description': 'Aldon is a passionate innovator and engineer working in pharmaceutical industry. He obtained a BS degree in Engineering from East Carolina Univeristy in 2018 and was born and raised in Greenville, attending South Central High School.'}
+    k_lopp = {'img_src': url_for('static', filename='img/victor-hernandez-greenville-united.png'), 'name': 'Kendyl Lopp', 'position': 'Business Intern', 'description': ''}
+    
+    
     players = [a_mbye, a_ibuaka, b_joseph, b_martinez, d_kaple, e_corona, g_saah, i_pineda, j_makoko, j_quiroga, j_vaught, k_boafo, k_boampong, m_fofana, m_jallow, m_raymond, m_ross, o_carlos, o_espino, q_murshed, v_hernandez, v_okafor]
+    employees = []
+    # return redirect(url_for('about.show_uc_page'))
+    return render_template('about/team.html', title='Team', employees=employees, players=players)
+
+@about_bp.route('/club')
+def show_club():
+    title = 'Club'
+    fernando = {'img_src': url_for('static', filename='img/fernando.png'), 'name': 'Fernando Zuniga', 'position': 'VP of Operations', 'description': "Mr. Zuniga enters his sixth season with the Chowan women's soccer team and fourth as head coach. During the 2020-21 season, Zuniga led the Hawks to one of their best seasons in program history sporting an 8-2-1 overall record and a 5-1-1 league record for second place in the league tables."}
+    
+    aaron = {'img_src': url_for('static', filename='img/aaron.png'), 'name': 'Fernando Zuniga', 'position': 'Director of Football', 'description': "Coach Okwei was born and raised in Osu, located in Accra, Ghana where he graduated from the Middlesbrough Soccer Academy before going on to play for the Desert Warriors who competed in the 2nd tier of Ghanaian football (soccer). Most recently, Okwei played for Greensboro International FC who compete in the UPSL"}
+    
+    luke = {'img_src': url_for('static', filename='img/luke.png'), 'name': 'Luke Staats', 'position': 'VP of Marketing', 'description': "Mr. Staats played four seasons of soccer at Lees-McRae (2008-12). He guided the team to three conference regular season and tournament titles, four straight NCAA Appearances, two trips to the NCAA Division II Sweet 16 and a national championship finalist appearance."}
+    
+    michael = {'img_src': url_for('static', filename='img/michael.png'), 'name': 'Michael McCarren', 'position': 'President', 'description': "Mr. McCarren is a business leader with 24 years of cross-functional experience in areas of business development, engineering, supply management, program management, marketing, and manufacturing. He holds 4 patents, 2 John Deere Presidents awards, 3 John Deere innovation awards, 1 Agritechnica innovation award, and 1 SPI Structure Design Award."}
+    
+    owners = [ fernando, aaron, luke, michael ]
     
     # return redirect(url_for('about.show_uc_page'))
-    return render_template('about/players.html', title='Players', players=players)
+    return render_template('about/club.html', title=title, owners=owners)
+
+@about_bp.route('/players')
+def show_players():
+    
+    
+    # return redirect(url_for('about.show_uc_page'))
+    return render_template('about/players.html', title='Players')
 
 @about_bp.route('/uc', methods=['GET', 'POST'])
 def show_uc_page():
@@ -81,16 +111,19 @@ def show_uc_page():
     
     if request.method == 'POST':
         email = request.form.get(u'email')
-        if email:
-            title = "Thank You"
-            existing_user = User.query.filter(User.email == email).first()
-            if existing_user:
-                htag = f"{email} is already subscribed!"
-                ptag = "Thank you for supporting our club. The email you submitted is already subscribed to our newsletter."
-                return render_template('main/thank-you.html', title=title, htag=htag, ptag=ptag)
+        existing_user = db.session.query(exists().where(User.email == email)).scalar()
+        print(existing_user)
+        title = "Thank You"
+        
+        if existing_user:
+            htag = f"{email} is already subscribed!"
+            ptag = "Thank you for supporting our club. The email you submitted is already subscribed to our newsletter."
+            return render_template('main/thank-you.html', title=title, htag=htag, ptag=ptag)
+        else:
             new_user = User(email=email, created=dt.now())
             db.session.add(new_user) # adds new User record to database
             db.session.commit() # commits the change
+            
             htag = f"{email} successfully subscribed!"
             ptag = "Thank you for supporting our club. The email you submitted has been subscribed to our newsletter and you may unsubscribe at any time."
-        return render_template('main/thank-you.html', title=title, htag=htag, ptag=ptag)
+            return render_template('main/thank-you.html', title=title, htag=htag, ptag=ptag)
