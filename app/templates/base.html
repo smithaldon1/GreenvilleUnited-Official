@@ -6,6 +6,13 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta name="language" content="English">
+  <meta name="title" content="{{ title }} - Greenville United Football Club">
+  <meta name="author" content="Greenville United Football Club">
+  <meta name="description" content="Greenville United is going national! Make a donation today to help us bring our love of the sport to Greenville, and all of Eastern North Carolina.">
+  <meta name="keywords" content="greenville, greenville nc, greenville nc soccer, minor league soccer, first flight league, greenville united, greenville united football club, greenville soccer club, greenville soccer team, greenville nc soccer team, greenville nc soccer club, greenville nc futbol team, greenville futbol club, greenville futbol team, greenville nc futbol club">
+  {% block meta %}{% endblock %}
   <title>{{ title }} - Greenville United Football Club</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
   <link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}">
@@ -115,6 +122,7 @@
               </div>
             </a>
             {% endif %}
+            <form name="PrePage" method = "post" action = "https://scotest.authorize.net/payment/CatalogPayment.aspx"> <input type = "hidden" name = "LinkId" value ="a271c224-249a-4408-9b09-2b0098c51873" /> <input type = "image" src ="//testcontent.authorize.net/images/donate-gold.gif" /> </form>
             <a href="{{ url_for('main.show_donate') }}" class="text-decoration-none donate-btn btn">Donate</a>
           </div>
         </div>

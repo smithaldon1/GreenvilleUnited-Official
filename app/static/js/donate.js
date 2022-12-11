@@ -16,8 +16,11 @@ $('#c-btn').click(() => {
     var other = $('#other-input').val();
     if ($('#radio4:checked').length === 1) {
         $('#p-btn').text("Pay $" + other);
+        var amount1 = $('#radio4').attr('value', other);
+        console.log('radio4 amount: ', amount1)
     } else {
         $('#p-btn').text("Pay $" + amount);
+        console.log(amount);
     }
 });
 

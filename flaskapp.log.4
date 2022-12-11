@@ -1,0 +1,223 @@
+2022-11-12 11:45:15,540 ERROR: Exception on / [GET] [in app.py: 1741]
+Traceback (most recent call last):
+  File "/opt/homebrew/lib/python3.9/site-packages/flask/app.py", line 2525, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/opt/homebrew/lib/python3.9/site-packages/flask/app.py", line 1822, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/opt/homebrew/lib/python3.9/site-packages/flask/app.py", line 1820, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/opt/homebrew/lib/python3.9/site-packages/flask/app.py", line 1796, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "/Users/aldonsmith/Documents/GitHub/GreenvilleUnited-Official/app/main/views.py", line 14, in show_index
+    return render_template('main/index.html')
+  File "/opt/homebrew/lib/python3.9/site-packages/flask/templating.py", line 147, in render_template
+    return _render(app, template, context)
+  File "/opt/homebrew/lib/python3.9/site-packages/flask/templating.py", line 130, in _render
+    rv = template.render(context)
+  File "/opt/homebrew/lib/python3.9/site-packages/jinja2/environment.py", line 1301, in render
+    self.environment.handle_exception()
+  File "/opt/homebrew/lib/python3.9/site-packages/jinja2/environment.py", line 936, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "/Users/aldonsmith/Documents/GitHub/GreenvilleUnited-Official/app/main/templates/main/index.html", line 1, in top-level template code
+    {% extends 'base.html' %}
+  File "/Users/aldonsmith/Documents/GitHub/GreenvilleUnited-Official/app/templates/base.html", line 17, in top-level template code
+    <a class="navbar-brand" href="{{ url_for(main.index) }}">
+  File "/opt/homebrew/lib/python3.9/site-packages/jinja2/environment.py", line 485, in getattr
+    return getattr(obj, attribute)
+jinja2.exceptions.UndefinedError: 'main' is undefined
+2022-11-12 11:45:41,774 ERROR: Exception on / [GET] [in app.py: 1741]
+Traceback (most recent call last):
+  File "/opt/homebrew/lib/python3.9/site-packages/flask/app.py", line 2525, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/opt/homebrew/lib/python3.9/site-packages/flask/app.py", line 1822, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/opt/homebrew/lib/python3.9/site-packages/flask/app.py", line 1820, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/opt/homebrew/lib/python3.9/site-packages/flask/app.py", line 1796, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "/Users/aldonsmith/Documents/GitHub/GreenvilleUnited-Official/app/main/views.py", line 14, in show_index
+    return render_template('main/index.html')
+  File "/opt/homebrew/lib/python3.9/site-packages/flask/templating.py", line 147, in render_template
+    return _render(app, template, context)
+  File "/opt/homebrew/lib/python3.9/site-packages/flask/templating.py", line 130, in _render
+    rv = template.render(context)
+  File "/opt/homebrew/lib/python3.9/site-packages/jinja2/environment.py", line 1301, in render
+    self.environment.handle_exception()
+  File "/opt/homebrew/lib/python3.9/site-packages/jinja2/environment.py", line 936, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "/Users/aldonsmith/Documents/GitHub/GreenvilleUnited-Official/app/main/templates/main/index.html", line 1, in top-level template code
+    {% extends 'base.html' %}
+  File "/Users/aldonsmith/Documents/GitHub/GreenvilleUnited-Official/app/templates/base.html", line 17, in top-level template code
+    <a class="navbar-brand" href="{{ url_for('main.index') }}">
+  File "/opt/homebrew/lib/python3.9/site-packages/flask/app.py", line 2031, in url_for
+    return self.handle_url_build_error(error, endpoint, values)
+  File "/opt/homebrew/lib/python3.9/site-packages/flask/app.py", line 2020, in url_for
+    rv = url_adapter.build(  # type: ignore[union-attr]
+  File "/opt/homebrew/lib/python3.9/site-packages/werkzeug/routing/map.py", line 917, in build
+    raise BuildError(endpoint, values, method, self)
+werkzeug.routing.exceptions.BuildError: Could not build url for endpoint 'main.index'. Did you mean 'main.show_index' instead?
+2022-11-12 11:45:52,362 ERROR: Exception on / [GET] [in app.py: 1741]
+Traceback (most recent call last):
+  File "/opt/homebrew/lib/python3.9/site-packages/flask/app.py", line 2525, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/opt/homebrew/lib/python3.9/site-packages/flask/app.py", line 1822, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/opt/homebrew/lib/python3.9/site-packages/flask/app.py", line 1820, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/opt/homebrew/lib/python3.9/site-packages/flask/app.py", line 1796, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "/Users/aldonsmith/Documents/GitHub/GreenvilleUnited-Official/app/main/views.py", line 14, in show_index
+    return render_template('main/index.html')
+  File "/opt/homebrew/lib/python3.9/site-packages/flask/templating.py", line 147, in render_template
+    return _render(app, template, context)
+  File "/opt/homebrew/lib/python3.9/site-packages/flask/templating.py", line 130, in _render
+    rv = template.render(context)
+  File "/opt/homebrew/lib/python3.9/site-packages/jinja2/environment.py", line 1301, in render
+    self.environment.handle_exception()
+  File "/opt/homebrew/lib/python3.9/site-packages/jinja2/environment.py", line 936, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "/Users/aldonsmith/Documents/GitHub/GreenvilleUnited-Official/app/main/templates/main/index.html", line 1, in top-level template code
+    {% extends 'base.html' %}
+  File "/Users/aldonsmith/Documents/GitHub/GreenvilleUnited-Official/app/templates/base.html", line 17, in top-level template code
+    <a class="navbar-brand" href="{{ url_for('main.show_index') }}">
+  File "/opt/homebrew/lib/python3.9/site-packages/flask/app.py", line 2031, in url_for
+    return self.handle_url_build_error(error, endpoint, values)
+  File "/opt/homebrew/lib/python3.9/site-packages/flask/app.py", line 2020, in url_for
+    rv = url_adapter.build(  # type: ignore[union-attr]
+  File "/opt/homebrew/lib/python3.9/site-packages/werkzeug/routing/map.py", line 917, in build
+    raise BuildError(endpoint, values, method, self)
+werkzeug.routing.exceptions.BuildError: Could not build url for endpoint 'main.index'. Did you mean 'main.show_index' instead?
+2022-12-08 19:28:42,842 ERROR: Exception on /site-map [GET] [in app.py: 1741]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 2525, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 1822, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 1820, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 1796, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "/app/app/main/views.py", line 95, in show_site_map
+    return render_template('main/site-map.html', title='Site Map')
+  File "/usr/local/lib/python3.8/site-packages/flask/templating.py", line 147, in render_template
+    return _render(app, template, context)
+  File "/usr/local/lib/python3.8/site-packages/flask/templating.py", line 130, in _render
+    rv = template.render(context)
+  File "/usr/local/lib/python3.8/site-packages/jinja2/environment.py", line 1301, in render
+    self.environment.handle_exception()
+  File "/usr/local/lib/python3.8/site-packages/jinja2/environment.py", line 936, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "/app/app/main/templates/main/site-map.html", line 1, in top-level template code
+    {% extends 'base.html' %}
+  File "/app/app/templates/base.html", line 125, in top-level template code
+    {% block main %}{% endblock %}
+  File "/app/app/main/templates/main/site-map.html", line 40, in block 'main'
+    <li><a class="text-decoration-none" href="{{ url_for('partners.show_donation') }}">Make A Donation</a></li>
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 2031, in url_for
+    return self.handle_url_build_error(error, endpoint, values)
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 2020, in url_for
+    rv = url_adapter.build(  # type: ignore[union-attr]
+  File "/usr/local/lib/python3.8/site-packages/werkzeug/routing/map.py", line 917, in build
+    raise BuildError(endpoint, values, method, self)
+werkzeug.routing.exceptions.BuildError: Could not build url for endpoint 'partners.show_donation'. Did you mean 'partners.show_donation_pp' instead?
+2022-12-08 19:28:47,889 ERROR: Exception on /site-map [GET] [in app.py: 1741]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 2525, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 1822, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 1820, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 1796, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "/app/app/main/views.py", line 95, in show_site_map
+    return render_template('main/site-map.html', title='Site Map')
+  File "/usr/local/lib/python3.8/site-packages/flask/templating.py", line 147, in render_template
+    return _render(app, template, context)
+  File "/usr/local/lib/python3.8/site-packages/flask/templating.py", line 130, in _render
+    rv = template.render(context)
+  File "/usr/local/lib/python3.8/site-packages/jinja2/environment.py", line 1301, in render
+    self.environment.handle_exception()
+  File "/usr/local/lib/python3.8/site-packages/jinja2/environment.py", line 936, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "/app/app/main/templates/main/site-map.html", line 1, in top-level template code
+    {% extends 'base.html' %}
+  File "/app/app/templates/base.html", line 125, in top-level template code
+    {% block main %}{% endblock %}
+  File "/app/app/main/templates/main/site-map.html", line 40, in block 'main'
+    <li><a class="text-decoration-none" href="{{ url_for('partners.show_donation') }}">Make A Donation</a></li>
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 2031, in url_for
+    return self.handle_url_build_error(error, endpoint, values)
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 2020, in url_for
+    rv = url_adapter.build(  # type: ignore[union-attr]
+  File "/usr/local/lib/python3.8/site-packages/werkzeug/routing/map.py", line 917, in build
+    raise BuildError(endpoint, values, method, self)
+werkzeug.routing.exceptions.BuildError: Could not build url for endpoint 'partners.show_donation'. Did you mean 'partners.show_donation_pp' instead?
+2022-12-09 20:33:43,317 ERROR: Exception on /donate [POST] [in app.py: 1741]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/site-packages/pyxb/binding/datatypes.py", line 146, in __new__
+    rv = super(decimal, cls).__new__(cls, *args, **kw)
+  File "/usr/local/lib/python3.8/site-packages/pyxb/binding/basis.py", line 895, in __new__
+    return parent.__new__(cls, *args, **kw)
+decimal.InvalidOperation: [<class 'decimal.ConversionSyntax'>]
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 2525, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 1822, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 1820, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 1796, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "/app/app/main/views.py", line 82, in show_donate
+    charge_card_donation(f_name, l_name, email, phone, amount, cc, b_zip, "Greenville United Football Club Donation", "00004")
+  File "/app/app/main/views.py", line 146, in charge_card_donation
+    line_item_1.unitPrice = amount
+  File "/usr/local/lib/python3.8/site-packages/pyxb/binding/basis.py", line 98, in __setattr__
+    return super(_TypeBinding_mixin, self).__setattr__(name, value)
+  File "/usr/local/lib/python3.8/site-packages/pyxb/binding/content.py", line 1043, in set
+    value = self.__elementBinding.compatibleValue(value, is_plural=self.isPlural())
+  File "/usr/local/lib/python3.8/site-packages/pyxb/binding/basis.py", line 1643, in compatibleValue
+    return self.typeDefinition()._CompatibleValue(value, **kw)
+  File "/usr/local/lib/python3.8/site-packages/pyxb/binding/basis.py", line 399, in _CompatibleValue
+    return cls(value)
+  File "/usr/local/lib/python3.8/site-packages/pyxb/binding/datatypes.py", line 148, in __new__
+    raise SimpleTypeValueError(cls, *args)
+pyxb.exceptions_.SimpleTypeValueError: Type <class 'authorizenet.apicontractsv1.STD_ANON_105'> cannot be created from: 
+2022-12-09 20:35:07,709 ERROR: Exception on /donate [POST] [in app.py: 1741]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/site-packages/pyxb/binding/datatypes.py", line 146, in __new__
+    rv = super(decimal, cls).__new__(cls, *args, **kw)
+  File "/usr/local/lib/python3.8/site-packages/pyxb/binding/basis.py", line 895, in __new__
+    return parent.__new__(cls, *args, **kw)
+decimal.InvalidOperation: [<class 'decimal.ConversionSyntax'>]
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 2525, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 1822, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 1820, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 1796, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "/app/app/main/views.py", line 82, in show_donate
+    charge_card_donation(f_name, l_name, email, phone, amount, cc, b_zip, "Greenville United Football Club Donation", "00004")
+  File "/app/app/main/views.py", line 146, in charge_card_donation
+    line_item_1.unitPrice = amount
+  File "/usr/local/lib/python3.8/site-packages/pyxb/binding/basis.py", line 98, in __setattr__
+    return super(_TypeBinding_mixin, self).__setattr__(name, value)
+  File "/usr/local/lib/python3.8/site-packages/pyxb/binding/content.py", line 1043, in set
+    value = self.__elementBinding.compatibleValue(value, is_plural=self.isPlural())
+  File "/usr/local/lib/python3.8/site-packages/pyxb/binding/basis.py", line 1643, in compatibleValue
+    return self.typeDefinition()._CompatibleValue(value, **kw)
+  File "/usr/local/lib/python3.8/site-packages/pyxb/binding/basis.py", line 399, in _CompatibleValue
+    return cls(value)
+  File "/usr/local/lib/python3.8/site-packages/pyxb/binding/datatypes.py", line 148, in __new__
+    raise SimpleTypeValueError(cls, *args)
+pyxb.exceptions_.SimpleTypeValueError: Type <class 'authorizenet.apicontractsv1.STD_ANON_105'> cannot be created from: 

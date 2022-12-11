@@ -90,13 +90,21 @@ def show_donate():
         return render_template('main/thank-you.html', title='Thank you for your Donation', donated=True, htag=htag, ptag=ptag)
 
 
-@main_bp.route('/site-map')
+@main_bp.route('/site-map', )
 def show_site_map():
-    return render_template('main/site-map.html', title='Site Map')
+    about = { 'headerHref': url_for('about.show_index'), 'name': 'About', 'links': [ {'href': url_for('about.show_vmc'), 'name': 'Vision, Mission, Core'}, {'href': url_for('about.show_league'), 'name': 'League'}, {'href': url_for('about.show_club'), 'name': 'Club'}, {'href': url_for('about.show_team'), 'name': 'Team'},] }
+    community = { 'headerHref': url_for('community.show_index'), 'name': 'Community', 'links': [ {'href': url_for('community.show_youth'), 'name': 'Youth'}, {'href': url_for('community.show_news'), 'name': 'Local News'}, {'href': url_for('community.show_schedule'), 'name': 'Schedule'},] }
+    
+    sections=[about, community]
+    
+    return render_template('main/site-map.html', title='Site Map', sections=sections)
 
 @main_bp.route('/privacy-policy')
 def show_pp():
     return render_template('store/privacy-policy.html', title='Privacy Policy')
+
+
+# Helper Functions ----------------------------
 
 def charge_card_donation(f_name, l_name, email, phone, amount, creditCard, b_zip, o_desc, o_inv_num):
     """
@@ -216,12 +224,14 @@ def charge_card_donation(f_name, l_name, email, phone, amount, creditCard, b_zip
                     response.transactionResponse.errors.error[0].errorCode))
                 print('Error message: %s' %
                       response.transactionResponse.errors.error[0].errorText)
+                print("Fuck this shit!")
                 abort(500)
             else:
                 print('Error Code: %s' %
                       response.messages.message[0]['code'].text)
                 print('Error message: %s' %
                       response.messages.message[0]['text'].text)
+                print("Fuck your shit!")
                 abort(500)
     else:
         print('Null Response.')
