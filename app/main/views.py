@@ -81,6 +81,11 @@ def show_donate():
         # Charge the card
         charge_card_donation(f_name, l_name, email, phone, amount, cc, b_zip, "Greenville United Football Club Donation", "00004")
         
+        stmt = db.select(Main).where(Main.id == 1)
+        goal = db.session.scalars(stmt).one()
+        new_goal = goal.value + int(amount)
+        goal.value = new_goal
+        db.session.commit()
         
         # Assign template vars
         htag = "Thank you for supporting us!"
@@ -167,7 +172,7 @@ def charge_card_donation(f_name, l_name, email, phone, amount, creditCard, b_zip
     transactionrequest.customer = customerData
     transactionrequest.transactionSettings = settings
     transactionrequest.lineItems = line_items
-
+    
     # Assemble the complete transaction request
     createtransactionrequest = apicontractsv1.createTransactionRequest()
     createtransactionrequest.merchantAuthentication = merchantAuth
@@ -195,15 +200,7 @@ def charge_card_donation(f_name, l_name, email, phone, amount, creditCard, b_zip
                       response.transactionResponse.messages.message[0].code)
                 print('Description: %s' % response.transactionResponse.
                       messages.message[0].description)
-                donation = Donation(
-                    d_created = dt.now(),
-                    amount = amount,
-                    first_name = f_name,
-                    last_name = l_name,
-                    email = email,
-                    phone = phone,
-                    zip_code = b_zip
-                )
+                donation = Donation( d_created=dt.now(), amount=amount, first_name=f_name, last_name=l_name, email=email, phone=phone, zip_code=b_zip)
                 db.session.add(donation)
                 db.session.commit()
             else:
@@ -224,14 +221,12 @@ def charge_card_donation(f_name, l_name, email, phone, amount, creditCard, b_zip
                     response.transactionResponse.errors.error[0].errorCode))
                 print('Error message: %s' %
                       response.transactionResponse.errors.error[0].errorText)
-                print("Fuck this shit!")
                 abort(500)
             else:
                 print('Error Code: %s' %
                       response.messages.message[0]['code'].text)
                 print('Error message: %s' %
                       response.messages.message[0]['text'].text)
-                print("Fuck your shit!")
                 abort(500)
     else:
         print('Null Response.')
