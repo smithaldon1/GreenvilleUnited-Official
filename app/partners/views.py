@@ -20,12 +20,6 @@ def show_partner():
     # return render_template('partners/partner.html', title=title)
     return render_template('under-construction.html', title=title)
 
-# @partners_bp.route('/donation')
-# def show_donation():
-#     title = 'Make A Donation'
-#     # return render_template('partners/donation.html', title=title)
-#     return None
-
 @partners_bp.route('/donation-policy')
 def show_donation_pp():
     title = 'Donation Policy'
