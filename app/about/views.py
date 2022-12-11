@@ -127,3 +127,4 @@ def show_uc_page():
             htag = f"{email} successfully subscribed!"
             ptag = "Thank you for supporting our club. The email you submitted has been subscribed to our newsletter and you may unsubscribe at any time."
             return render_template('main/thank-you.html', title=title, htag=htag, ptag=ptag)
+ 
