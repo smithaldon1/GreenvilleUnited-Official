@@ -57,7 +57,7 @@ def register_blueprints(app):
     
 def initialize_extensions(app):
     db.init_app(app)
-
+    
 def register_error_handlers(app):
     # 400 – Bad Request
     @app.errorhandler(400)

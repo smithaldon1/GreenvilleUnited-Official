@@ -80,6 +80,7 @@ def show_donate():
         
         # Charge the card
         charge_card_donation(f_name, l_name, email, phone, amount, cc, b_zip, "Greenville United Football Club Donation", "00004")
+        cursor = mysql.get_db().cursor()
         
         stmt = db.select(Main).where(Main.id == 1)
         goal = db.session.scalars(stmt).one()
@@ -133,7 +134,7 @@ def charge_card_donation(f_name, l_name, email, phone, amount, creditCard, b_zip
     order.description = o_desc
 
     # Set the customer's Bill To address
-    customerAddress = apicontractsv1.customerAddressType()
+    customerAddress = apicontractsv1.customerAddressType().ndjson
     customerAddress.firstName = f_name
     customerAddress.lastName = l_name
     customerAddress.zip = b_zip
@@ -201,6 +202,7 @@ def charge_card_donation(f_name, l_name, email, phone, amount, creditCard, b_zip
                 print('Description: %s' % response.transactionResponse.
                       messages.message[0].description)
                 donation = Donation( d_created=dt.now(), amount=amount, first_name=f_name, last_name=l_name, email=email, phone=phone, zip_code=b_zip)
+                
                 db.session.add(donation)
                 db.session.commit()
             else:
