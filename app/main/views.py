@@ -63,10 +63,10 @@ def show_donate():
         goal_stmt = db.select(Main.value).where(Main.id == 2)
         
         # execute statements against db session
-        # d_total = db.session.scalars(total_stmt).one()
-        # d_goal = db.session.scalars(goal_stmt).one()
-        d_total = 1500
-        d_goal = 50000
+        d_total = db.session.scalars(total_stmt).one()
+        d_goal = db.session.scalars(goal_stmt).one()
+        # d_total = 1500
+        # d_goal = 50000
         g_percent = (d_total/d_goal)*100
         return render_template('partners/donation.html', title='Make a Donation', total=f"${d_total}.00", percent_of_goal=g_percent, goal=f"${d_goal}.00")
     elif request.method == 'POST':
@@ -90,17 +90,17 @@ def show_donate():
         charge_card_donation(f_name, l_name, email, phone, amount, cc, b_zip, "Greenville United Football Club Donation", "00004")
         
         # Select existing total value
-        # stmt = db.select(Main.value).where(Main.id == 1)
-        # total = db.session.scalars(stmt).one()
+        stmt = db.select(Main.value).where(Main.id == 1)
+        total = db.session.scalars(stmt).one()
         # Create new updated total amount
-        # new_total = total + int(amount)
+        new_total = total + int(amount)
         
         # Update table with new value
-        # update_stmt = Main.update().where(Main.c.name == 'd_total').values(value=new_total).returning(Main.c.value)
+        update_stmt = db.update(Main).where(Main.name == 'total').values(value=new_total).returning(Main.value)
         # print(update_stmt)
-        # db.session.scalars(update_stmt).one()
+        db.session.scalars(update_stmt).one()
         # Commit changes
-        # db.session.commit()
+        db.session.commit()
         
         # Assign template vars
         htag = "Thank you for supporting us!"

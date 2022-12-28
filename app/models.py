@@ -9,7 +9,7 @@ from datetime import datetime as dt
 # User Model
 class User(db.Model):
     """Data model for website users"""
-    __tablename__ = 'gufcUsers'
+    __tablename__ = 'gufcusers'
     id = db.Column(db.Integer, primary_key=True, unique=True)
     email = db.Column(db.String(255), index=False, unique=True, nullable=False)
     created = db.Column(db.DateTime, index=False, unique=False, nullable=False)
@@ -24,7 +24,7 @@ class User(db.Model):
 
 # Donation Model
 class Donation(db.Model):
-    __tablename__ = 'gufcDonations'
+    __tablename__ = 'gufcdonations'
     id = db.Column(db.Integer, primary_key=True)
     d_created = db.Column(db.DateTime, index=False, unique=False, nullable=False)
     amount = db.Column(db.Integer, unique=False, nullable=False)
@@ -109,7 +109,7 @@ class Match(db.Model):
         return f"Match(id={self.id}, match_date={self.match_date}, opponent={self.opponent}, logo_src={self.logo_src})"
     
 class Main(db.Model):
-    __tablename__ = 'gufcMain'
+    __tablename__ = 'gufcmain'
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(255), nullable=False)
     value = db.Column(db.Integer, nullable=False)

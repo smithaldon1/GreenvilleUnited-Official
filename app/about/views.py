@@ -120,7 +120,7 @@ def show_uc_page():
             ptag = "Thank you for supporting our club. The email you submitted is already subscribed to our newsletter."
             return render_template('main/thank-you.html', title=title, htag=htag, ptag=ptag)
         else:
-            new_user = User(email=email, created=dt.now())
+            new_user = User(email=email)
             db.session.add(new_user) # adds new User record to database
             db.session.commit() # commits the change
             
