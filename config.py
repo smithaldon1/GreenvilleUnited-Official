@@ -22,12 +22,14 @@ class Config:
     SQLALCHEMY_TRACK_MODIFICATIONS = False
     
     
-    
 class DevelopmentConfig(Config):
     DEBUG = True
     API_LOGIN_ID = os.getenv('DEV_API_LOGIN_ID')
     TRANSACTION_KEY = os.getenv('DEV_TRANSACTION_KEY')
-    SQLALCHEMY_DATABASE_URI = "sqlite:///" + os.path.join(basedir, 'default.db')
+    DB_USER = os.getenv('DB_USER')
+    DB_PASSWORD = os.getenv('DB_PASSWORD')
+    DB_HOST = os.getenv('DB_HOST')
+    SQLALCHEMY_DATABASE_URI = f"postgresql://{DB_USER}:{DB_PASSWORD}@{DB_HOST}/db"
     
 class TestingConfig(Config):
     TESTING = True
@@ -35,9 +37,9 @@ class TestingConfig(Config):
     SQLALCHEMY_DATABASE_URI = "sqlite:///" + os.path.join(basedir, 'test.db')
     
 class ProductionConfig(Config):
-    MYSQL_USER = os.getenv('MARIADB_USER')
-    MYSQL_PASSWORD = os.getenv('MARIADB_PASSWORD')
-    MYSQL_HOST = os.getenv('MARIADB_HOST')
-    SQLALCHEMY_DATABASE_URI = f"mysql+pymysql://{MYSQL_USER}:{MYSQL_PASSWORD}@{MYSQL_HOST}/" + os.path.join(basedir, 'prod.db')
-    API_LOGIN_ID = os.getenv('DEV_API_LOGIN_ID')
-    TRANSACTION_KEY = os.getenv('DEV_TRANSACTION_KEY')
+    DB_USER = os.getenv('DB_USER')
+    DB_PASSWORD = os.getenv('DB_PASSWORD')
+    DB_HOST = os.getenv('DB_HOST')
+    SQLALCHEMY_DATABASE_URI = f"postgresql://{DB_USER}:{DB_PASSWORD}@{DB_HOST}/db"
+    API_LOGIN_ID = os.getenv('PROD_API_LOGIN_ID')
+    TRANSACTION_KEY = os.getenv('PROD_TRANSACTION_KEY')

@@ -50,15 +50,23 @@ def show_index():
     title = 'GUFC Goes National!'
     return render_template('main/index.html', title=title, cards=spotlight_cards, partners=partners, sponsors=sponsors)
 
+@main_bp.route('/db-admin', methods=['GET', 'POST', 'PUT'])
+def show_db_admin():
+    if request.method == 'GET':
+        return render_template('main/form.html')
+
 @main_bp.route('/donate', methods=['GET', 'POST'])
 def show_donate():
     if request.method == 'GET':
         # Create select statements using SQLAlchemy() db object
         total_stmt = db.select(Main.value).where(Main.id == 1)
         goal_stmt = db.select(Main.value).where(Main.id == 2)
+        
         # execute statements against db session
-        d_total = db.session.scalars(total_stmt).one()
-        d_goal = db.session.scalars(goal_stmt).one()
+        # d_total = db.session.scalars(total_stmt).one()
+        # d_goal = db.session.scalars(goal_stmt).one()
+        d_total = 1500
+        d_goal = 50000
         g_percent = (d_total/d_goal)*100
         return render_template('partners/donation.html', title='Make a Donation', total=f"${d_total}.00", percent_of_goal=g_percent, goal=f"${d_goal}.00")
     elif request.method == 'POST':
@@ -80,13 +88,19 @@ def show_donate():
         
         # Charge the card
         charge_card_donation(f_name, l_name, email, phone, amount, cc, b_zip, "Greenville United Football Club Donation", "00004")
-        cursor = mysql.get_db().cursor()
         
-        stmt = db.select(Main).where(Main.id == 1)
-        goal = db.session.scalars(stmt).one()
-        new_goal = goal.value + int(amount)
-        goal.value = new_goal
-        db.session.commit()
+        # Select existing total value
+        # stmt = db.select(Main.value).where(Main.id == 1)
+        # total = db.session.scalars(stmt).one()
+        # Create new updated total amount
+        # new_total = total + int(amount)
+        
+        # Update table with new value
+        # update_stmt = Main.update().where(Main.c.name == 'd_total').values(value=new_total).returning(Main.c.value)
+        # print(update_stmt)
+        # db.session.scalars(update_stmt).one()
+        # Commit changes
+        # db.session.commit()
         
         # Assign template vars
         htag = "Thank you for supporting us!"
@@ -96,7 +110,7 @@ def show_donate():
         return render_template('main/thank-you.html', title='Thank you for your Donation', donated=True, htag=htag, ptag=ptag)
 
 
-@main_bp.route('/site-map', )
+@main_bp.route('/site-map', methods=['GET'])
 def show_site_map():
     about = { 'headerHref': url_for('about.show_index'), 'name': 'About', 'links': [ {'href': url_for('about.show_vmc'), 'name': 'Vision, Mission, Core'}, {'href': url_for('about.show_league'), 'name': 'League'}, {'href': url_for('about.show_club'), 'name': 'Club'}, {'href': url_for('about.show_team'), 'name': 'Team'},] }
     community = { 'headerHref': url_for('community.show_index'), 'name': 'Community', 'links': [ {'href': url_for('community.show_youth'), 'name': 'Youth'}, {'href': url_for('community.show_news'), 'name': 'Local News'}, {'href': url_for('community.show_schedule'), 'name': 'Schedule'},] }
@@ -134,7 +148,7 @@ def charge_card_donation(f_name, l_name, email, phone, amount, creditCard, b_zip
     order.description = o_desc
 
     # Set the customer's Bill To address
-    customerAddress = apicontractsv1.customerAddressType().ndjson
+    customerAddress = apicontractsv1.customerAddressType()
     customerAddress.firstName = f_name
     customerAddress.lastName = l_name
     customerAddress.zip = b_zip
@@ -201,35 +215,31 @@ def charge_card_donation(f_name, l_name, email, phone, amount, creditCard, b_zip
                       response.transactionResponse.messages.message[0].code)
                 print('Description: %s' % response.transactionResponse.
                       messages.message[0].description)
-                donation = Donation( d_created=dt.now(), amount=amount, first_name=f_name, last_name=l_name, email=email, phone=phone, zip_code=b_zip)
+                
+                donation = Donation(amount=amount, first_name=f_name, last_name=l_name, email=email, phone=phone, zip_code=b_zip)
                 
                 db.session.add(donation)
                 db.session.commit()
             else:
                 print('Failed Transaction.')
                 if hasattr(response.transactionResponse, 'errors') is True:
-                    print('Error Code:  %s' % str(response.transactionResponse.errors.error[0].errorCode))
-                    print(
-                        'Error message: %s' %
-                        response.transactionResponse.errors.error[0].errorText)
-                abort(400)
+                    eC = 'Error Code:  %s' % str(response.transactionResponse.errors.error[0].errorCode)
+                    eM = 'Error message: %s' % response.transactionResponse.errors.error[0].errorText
+                    return render_template('400.html', errorCode=eC, errorMessage=eM)
                     
         # Or, print errors if the API request wasn't successful
         else:
             print('Failed Transaction.')
             if hasattr(response, 'transactionResponse') is True and hasattr(
                     response.transactionResponse, 'errors') is True:
-                print('Error Code: %s' % str(
-                    response.transactionResponse.errors.error[0].errorCode))
-                print('Error message: %s' %
-                      response.transactionResponse.errors.error[0].errorText)
-                abort(500)
+                eC = 'Error Code: %s' % str(
+                    response.transactionResponse.errors.error[0].errorCode)
+                eM = 'Error message: %s' % response.transactionResponse.errors.error[0].errorText
+                return render_template('500.html', errorCode=eC, errorMessage=eM)
             else:
-                print('Error Code: %s' %
-                      response.messages.message[0]['code'].text)
-                print('Error message: %s' %
-                      response.messages.message[0]['text'].text)
-                abort(500)
+                eC = 'Error Code: %s' % response.messages.message[0]['code'].text
+                eM = 'Error message: %s' % response.messages.message[0]['text'].text
+                return render_template('500.html', errorCode=eC, errorMessage=eM)
     else:
         print('Null Response.')
         abort(404)

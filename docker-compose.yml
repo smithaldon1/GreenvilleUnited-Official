@@ -1,28 +1,31 @@
 version: "3"
 services:
-  db:
-    image: mariadb
-    restart: always
-    volumes:
-      - mariadb_data:/var/lib/mysql
-    environment:
-      - MYSQL_ROOT_PASSWORD=example
-      - MYSQL_PASSWORD=example
-      - MYSQL_USER=flask_docker
-      - MYSQL_DATABASE=flask_docker
-    # command: mariadb --host 0.0.0.0 -P 3306 --user root -p example
-    
   web:
     build: .
     ports:
-      - 8000:5000
-      - 3306:3306
+      - 8000:8000
     env_file:
       - .env
     volumes:
-      - .:/app
+      - ".:/app:rw"
+      - "./data:/data:rw"
     depends_on:
       - db
-
-volumes:
-  mariadb_data: {}
+    networks:
+      - appnet
+  db:
+    image: postgres:13.5-alpine
+    restart: always
+    ports:
+      - "5432:5432/tcp"
+    environment:
+      POSTGRES_DB: "db"
+      POSTGRES_PASSWORD: "password"
+      POSTGRES_HOST_AUTH_METHOD: "trust"
+      SERVICE_MANAGER: "fsm-postgres"
+    networks:
+      - appnet
+    volumes:
+      - ".:/app:rw"
+networks:
+  appnet:
