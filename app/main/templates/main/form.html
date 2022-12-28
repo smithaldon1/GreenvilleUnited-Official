@@ -1,0 +1,112 @@
+{% extends 'base.html' %}
+
+{% block meta %}
+  <meta name="description" content="Greenville United is going national! Make a donation today to help us bring our love of the sport to Greenville, and all of Eastern North Carolina.">
+  <meta name="keywords" content="greenville, greenville nc, greenville nc soccer, minor league soccer, first flight league, greenville united, greenville united football club, greenville soccer club, greenville soccer team, greenville nc soccer team, greenville nc soccer club, greenville nc soccer team">
+{% endblock %}
+
+{% block css %}
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/main-index.css') }}">
+{% endblock %}
+
+{% block main %}
+  <div class="container">
+    <nav>
+      <div class="nav nav-tabs" id="nav-tab" role="tablist">
+        <button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home" aria-selected="true">gufcMain</button>
+        <button class="nav-link" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile" type="button" role="tab" aria-controls="nav-profile" aria-selected="false">Profile</button>
+        <button class="nav-link" id="nav-contact-tab" data-bs-toggle="tab" data-bs-target="#nav-contact" type="button" role="tab" aria-controls="nav-contact" aria-selected="false">Contact</button>
+        <button class="nav-link" id="nav-disabled-tab" data-bs-toggle="tab" data-bs-target="#nav-disabled" type="button" role="tab" aria-controls="nav-disabled" aria-selected="false">Disabled</button>
+      </div>
+    </nav>
+    <div class="tab-content" id="nav-tabContent">
+      <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab" tabindex="0">
+        <div class="col-md-4">
+          <label for="id-1">Id</label>
+          <input type="number" class="form-control" id="id-1">
+        </div>
+        <div class="col-md-4">
+          <label for="name">Name</label>
+          <input type="text" class="form-control" id="name">
+        </div>
+        <div class="col-md-4">
+          <label for="value">Value</label>
+          <input type="text" class="form-control" id="value">
+        </div>
+      </div>
+      <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab" tabindex="0">
+        <div class="col-md-6">
+          <label for="id-2">Id</label>
+          <input type="number" class="form-control" id="id-2">
+        </div>
+        <div class="col-md-6">
+          <label for="amount">Amount</label>
+          <input type="number" class="form-control" id="amount">
+        </div>
+        <div class="col-md-6">
+          <label for="f_name">First Name</label>
+          <input type="text" class="form-control" id="f_name">
+        </div>
+        <div class="col-md-6">
+          <label for="l_name">Last Name</label>
+          <input type="text" class="form-control" id="l_name">
+        </div>
+        <div class="col-md-6">
+          <label for="email">email</label>
+          <input type="text" class="form-control" id="email">
+        </div>
+      </div>
+      <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab" tabindex="0">...</div>
+      <div class="tab-pane fade" id="nav-disabled" role="tabpanel" aria-labelledby="nav-disabled-tab" tabindex="0">...</div>
+    </div>
+      
+
+        <div class="col-md-6">
+          <label for="inputEmail4" class="form-label">Email</label>
+          <input type="email" class="form-control" id="inputEmail4">
+        </div>
+        <div class="col-md-6">
+          <label for="inputPassword4" class="form-label">Password</label>
+          <input type="password" class="form-control" id="inputPassword4">
+        </div>
+        <div class="col-12">
+          <label for="inputAddress" class="form-label">Address</label>
+          <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
+        </div>
+        <div class="col-12">
+          <label for="inputAddress2" class="form-label">Address 2</label>
+          <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
+        </div>
+        <div class="col-md-6">
+          <label for="inputCity" class="form-label">City</label>
+          <input type="text" class="form-control" id="inputCity">
+        </div>
+        <div class="col-md-4">
+          <label for="inputState" class="form-label">State</label>
+          <select id="inputState" class="form-select">
+            <option selected>Choose...</option>
+            <option>...</option>
+          </select>
+        </div>
+        <div class="col-md-2">
+          <label for="inputZip" class="form-label">Zip</label>
+          <input type="text" class="form-control" id="inputZip">
+        </div>
+        <div class="col-12">
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="gridCheck">
+            <label class="form-check-label" for="gridCheck">
+              Check me out
+            </label>
+          </div>
+        </div>
+        <div class="col-12">
+          <button type="submit" class="btn btn-primary">Sign in</button>
+        </div>
+      </form>
+  </div>
+{% endblock %}
+
+{% block js %}
+  <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+{% endblock %}

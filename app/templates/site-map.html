@@ -2,8 +2,8 @@
 
 {% block main %}
 <div class="container-fluid mt-0" style="background-color: var(--gufc-green);">
-    <footer class="row row-cols-1 row-cols-sm-2 row-cols-md-5 pt-4">
-      {% for section in sections %}
+    <section class="row row-cols-1 row-cols-sm-2 row-cols-md-5 pt-4">
+      <!-- {% for section in sections %}
       <div class="col mb-3 ms-2">
         <h5><a class='text-decoration-none footer-link' href="{{ section.headerHref }}">{{ section.name }}</a></h5>
         <ul class="nav flex-column">
@@ -12,10 +12,10 @@
           {% endfor %}
         </ul>
       </div>
-      {% endfor %}
+      {% endfor %} -->
       
   
-      <!-- <div class="col mb-3">
+      <div class="col mb-3">
         <h5><a class='text-decoration-none footer-link' href="{{ url_for('community.show_index')}}">Community</a></h5>
         <ul class="nav flex-column">
           <li class="nav-item mb-2"><a href="{{ url_for('community.show_youth')}}" class="nav-link p-0 footer-link">Youth</a></li>
@@ -51,7 +51,7 @@
           <li class="nav-item mb-2 p-0 "><a href="mailto:store@greenvilleutd.com" class="nav-link p-0  text-decoration-none footer-link">Merchandise Support</a></li>
           <li class="nav-item mb-2 p-0 "><a href="mailto:club@greenvilleutd.com" class="nav-link p-0  text-decoration-none footer-link">Club Support</a></li>
         </ul>
-      </div> -->
-    </footer>
+      </div>
+    </section>
 </div>
 {% endblock %}

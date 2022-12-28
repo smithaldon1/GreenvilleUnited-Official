@@ -1,0 +1,5 @@
+CREATE TABLE gufcUsers(
+    id INT PRIMARY KEY NOT NULL,
+    email VARCHAR(255) NOT NULL,
+    created TIMESTAMP NOT NULL
+);

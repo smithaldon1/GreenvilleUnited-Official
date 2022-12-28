@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block css %}
+  
+{% endblock %}
+
+{% block main %}
+<div class="container my-3">
+  <h2 class="my-3">Donations:</h2>
+  <div class="row g-3" data-masonry='{"percentPosition": true }'>
+    {% for donation in donations %}
+    <div class="card mx-3" style="width: 18rem;">
+      <div class="card-body">
+        <h5 class="card-title">{{ donation.first_name }} {{ donation.last_name }}</h5>
+        <h6 class="card-subtitle mb-2 text-muted">{{ donation.d_created }}</h6>
+        <p class="card-text">{{ donation.email }}</p>
+        <div class="container">
+          <a href="#" class="card-link">{{ donation.phone }}</a>
+        </div>
+        <div class="container">
+          <a href="mailto:{{ donation.email }}" class="card-link">{{ donation.email }}</a>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}
+
+{% block js %}
+<script src="https://cdn.jsdelivr.net/npm/masonry-layout@4.2.2/dist/masonry.pkgd.min.js" integrity="sha384-GNFwBvfVxBkLMJpYMOABq3c+d3KnQxudP/mGPkzpZSTYykLBNsZEnG2D9G/X/+7D" crossorigin="anonymous" async></script>
+{% endblock %}

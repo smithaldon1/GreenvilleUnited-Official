@@ -20,13 +20,16 @@ class Config:
     SECRET_KEY = os.getenv('SECRET_KEY', default='Its a trap')
     
     SQLALCHEMY_TRACK_MODIFICATIONS = False
-    SQLALCHEMY_DATABASE_URI = "sqlite:///" + os.path.join(basedir, 'default.db')
     
     
 class DevelopmentConfig(Config):
     DEBUG = True
     API_LOGIN_ID = os.getenv('DEV_API_LOGIN_ID')
     TRANSACTION_KEY = os.getenv('DEV_TRANSACTION_KEY')
+    DB_USER = os.getenv('DB_USER')
+    DB_PASSWORD = os.getenv('DB_PASSWORD')
+    DB_HOST = os.getenv('DB_HOST')
+    SQLALCHEMY_DATABASE_URI = f"postgresql://{DB_USER}:{DB_PASSWORD}@{DB_HOST}/db"
     
 class TestingConfig(Config):
     TESTING = True
@@ -34,6 +37,9 @@ class TestingConfig(Config):
     SQLALCHEMY_DATABASE_URI = "sqlite:///" + os.path.join(basedir, 'test.db')
     
 class ProductionConfig(Config):
-    SQLALCHEMY_DATABASE_URI = "sqlite:///" + os.path.join(basedir, 'prod.db')
+    DB_USER = os.getenv('DB_USER')
+    DB_PASSWORD = os.getenv('DB_PASSWORD')
+    DB_HOST = os.getenv('DB_HOST')
+    SQLALCHEMY_DATABASE_URI = f"postgresql://{DB_USER}:{DB_PASSWORD}@{DB_HOST}/db"
     API_LOGIN_ID = os.getenv('PROD_API_LOGIN_ID')
     TRANSACTION_KEY = os.getenv('PROD_TRANSACTION_KEY')
