@@ -1,10 +1,5 @@
 from . import db
 from datetime import datetime as dt
-# from sqlalchemy import Column, ForeignKey, Integer, String, DateTime, Float
-# from sqlalchemy.orm import declarative_base, relationship
-
-# declarative base class
-# Base = declarative_base()
 
 # User Model
 class User(db.Model):
@@ -12,18 +7,23 @@ class User(db.Model):
     __tablename__ = 'gufcusers'
     id = db.Column(db.Integer, primary_key=True, unique=True)
     email = db.Column(db.String(255), index=False, unique=True, nullable=False)
+    password = db.Column(db.String(255), index=False, unique=False, nullable=False)
     created = db.Column(db.DateTime, index=False, unique=False, nullable=False)
     
-    def __init__(self, email):
+    def __init__(self, email, password):
         self.email = email
+        self.password = password
         self.created = dt.now()
     
     def __repr__(self):
-        return f"User(id={self.id!r}, email={self.email}, created={self.created})"
+        return f"User(id={self.id!r}, email={self.email}, password={self.password}, created={self.created})"
 
 
 # Donation Model
 class Donation(db.Model):
+    """ 
+    Data model 
+    """
     __tablename__ = 'gufcdonations'
     id = db.Column(db.Integer, primary_key=True)
     d_created = db.Column(db.DateTime, index=False, unique=False, nullable=False)
