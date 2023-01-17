@@ -1,5 +1,3 @@
-{% from "./macros.html" import nav_link with context %}
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -31,7 +29,7 @@
       <img src="{{ url_for('static', filename='img/facebook-f.svg') }}" alt="Facebook Icon" class="rounded brand-ico" height="20em">
     </a>
   </div>
-  <header class="py-2 shadow-sm" style="background-color: var(--gufc-yellow)">
+  <header class="shadow-sm" style="background-color: var(--gufc-yellow)">
     <nav class="navbar navbar-expand-lg">
       <div class="container-fluid">
         <a class="navbar-brand" href="{{ url_for('main.show_index') }}">
@@ -70,7 +68,7 @@
               </a>
               <ul class="dropdown-menu">
                 <li><a class="dropdown-item" href="{{ url_for('store.show_tickets') }}">Tickets</a></li>
-                <li><a class="dropdown-item" href="https://store.greenvilleutd.com/">Team Store</a></li>
+                <li><a class="dropdown-item" href="{{ url_for('store.show_index') }}">Team Store</a></li>
                 <li><a class="dropdown-item" href="{{ url_for('store.show_support') }}">Support</a></li>
               </ul>
             </li>
@@ -127,7 +125,45 @@
         </div>
       </div>
     </nav>
+    <div class="container-fluid py-1" style="background-color: black;">
+      <div class="container-sm">
+        <div class="btn-group">
+          <button type="button" class="btn store-nav">Adults</button>
+          <button type="button" class="btn dropdown-toggle dropdown-toggle-split store-nav" data-bs-toggle="dropdown" aria-expanded="false">
+            <span class="visually-hidden">Toggle Dropdown</span>
+          </button>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#">Accessories</a></li>
+            <li><a class="dropdown-item" href="#">Jerseys</a></li>
+            <li><a class="dropdown-item" href="#">Hats</a></li>
+          </ul>
+        </div>
+        <div class="btn-group">
+          <button type="button" class="btn store-nav">Kids</button>
+          <button type="button" class="btn dropdown-toggle dropdown-toggle-split store-nav" data-bs-toggle="dropdown" aria-expanded="false">
+            <span class="visually-hidden">Toggle Dropdown</span>
+          </button>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#">Accessories</a></li>
+            <li><a class="dropdown-item" href="#">Jerseys</a></li>
+            <li><a class="dropdown-item" href="#">Hats</a></li>
+          </ul>
+        </div>
+        <div class="btn-group">
+          <button type="button" class="btn store-nav" style="color: white;">Accessories</button>
+          <button type="button" class="btn dropdown-toggle dropdown-toggle-split store-nav" data-bs-toggle="dropdown" aria-expanded="false" style="color: white;">
+            <span class="visually-hidden">Toggle Dropdown</span>
+          </button>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#">Flags</a></li>
+            <li><a class="dropdown-item" href="#">Decals</a></li>
+            <li><a class="dropdown-item" href="#">Other</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
   </header>
+  {% block header %} {% endblock %}
   <main role="main" class="pb-5" style="min-height: 80vh;">
     {% block main %}{% endblock %}
   </main>

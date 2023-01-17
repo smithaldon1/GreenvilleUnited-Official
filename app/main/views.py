@@ -220,12 +220,9 @@ def charge_card_donation(f_name, l_name, email, phone, amount, creditCard, b_zip
                 print('Description: %s' % response.transactionResponse.
                       messages.message[0].description)
                 
-                try:
-                    donation = Donation(amount=amount, first_name=f_name, last_name=l_name, email=email, phone=phone, zip_code=b_zip)
-                    db.session.add(donation)
-                    db.session.commit()
-                except e as Exception:
-                    return render_template('main/exception.html')
+                donation = Donation(amount=amount, first_name=f_name, last_name=l_name, email=email, phone=phone, zip_code=b_zip)
+                db.session.add(donation)
+                db.session.commit()
             else:
                 print('Failed Transaction.')
                 if hasattr(response.transactionResponse, 'errors') is True:

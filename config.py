@@ -19,17 +19,17 @@ class Config:
     # Settings applicable to all environments
     SECRET_KEY = os.getenv('SECRET_KEY', default='Its a trap')
     
-    SQLALCHEMY_TRACK_MODIFICATIONS = False
-    DB_USER = os.getenv('DB_USER')
-    DB_PASSWORD = os.getenv('DB_PASSWORD')
-    DB_HOST = os.getenv('DB_HOST')
-    SQLALCHEMY_DATABASE_URI = f"postgresql://{DB_USER}:{DB_PASSWORD}@{DB_HOST}/db"
+    SQLALCHEMY_TRACK_MODIFICATIONS = False   
     
     
 class DevelopmentConfig(Config):
     DEBUG = True
     API_LOGIN_ID = os.getenv('DEV_API_LOGIN_ID')
     TRANSACTION_KEY = os.getenv('DEV_TRANSACTION_KEY')
+    DB_USER = os.getenv('DB_USER')
+    DB_PASSWORD = os.getenv('DB_PASSWORD')
+    DB_HOST = os.getenv('DB_HOST')
+    SQLALCHEMY_DATABASE_URI = f"postgresql://{DB_USER}:{DB_PASSWORD}@{DB_HOST}/db"
     
 class TestingConfig(Config):
     TESTING = True
@@ -39,4 +39,8 @@ class TestingConfig(Config):
 class ProductionConfig(Config):
     API_LOGIN_ID = os.getenv('PROD_API_LOGIN_ID')
     TRANSACTION_KEY = os.getenv('PROD_TRANSACTION_KEY')
+    DB_USER = os.getenv('DB_USER')
+    DB_PASSWORD = os.getenv('DB_PASSWORD')
+    DB_HOST = os.getenv('DB_HOST')
+    SQLALCHEMY_DATABASE_URI = f"postgresql://{DB_USER}:{DB_PASSWORD}@{DB_HOST}/prod_db"
     

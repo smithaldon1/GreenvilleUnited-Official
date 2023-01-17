@@ -1,0 +1,17 @@
+@media screen and (max-width: 800px) {
+    #calendar {
+        display: none;
+    }
+    #events {
+        display: flex;
+    }
+}
+
+@media screen and (min-width: 801px) {
+    #calendar {
+        display: flex;
+    }
+    #events {
+        display: none;
+    }
+}
