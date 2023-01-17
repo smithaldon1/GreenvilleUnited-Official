@@ -45,15 +45,13 @@ def register_blueprints(app):
     from app.main import main_bp
     from app.partners import partners_bp
     from app.store import store_bp
-    from app.admin import admin_bp
     
     app.register_blueprint(about_bp, url_prefix='/about')
     app.register_blueprint(community_bp, url_prefix='/community')
     app.register_blueprint(contact_bp, url_prefix='/contact')
     app.register_blueprint(main_bp)
-    app.register_blueprint(admin_bp, url_prefix='/admin')
+    app.register_blueprint(store_bp)
     app.register_blueprint(partners_bp, url_prefix='/partners')
-    app.register_blueprint(store_bp, url_prefix='/store')
     
 def initialize_extensions(app):
     db.init_app(app)

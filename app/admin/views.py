@@ -20,7 +20,8 @@ def show_index():
 def show_events():
     if request.method == 'GET':
         events = {}
-        return render_template('admin/events.html', title='Events Admin', events=events)
+        return render_template('under-construction.html')
+        # return render_template('admin/events.html', title='Events Admin', events=events)
     elif request.method == 'POST':
         # Assign form values
         title = request.form['title']
