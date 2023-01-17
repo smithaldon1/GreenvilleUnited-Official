@@ -1,30 +1,30 @@
 from . import db
 from datetime import datetime as dt
-# from sqlalchemy import Column, ForeignKey, Integer, String, DateTime, Float
-# from sqlalchemy.orm import declarative_base, relationship
-
-# declarative base class
-# Base = declarative_base()
 
 # User Model
 class User(db.Model):
     """Data model for website users"""
-    __tablename__ = 'gufcusers'
+    __tablename__ = "gufcusers"
     id = db.Column(db.Integer, primary_key=True, unique=True)
     email = db.Column(db.String(255), index=False, unique=True, nullable=False)
+    password = db.Column(db.String(255), index=False, unique=False, nullable=False)
     created = db.Column(db.DateTime, index=False, unique=False, nullable=False)
     
-    def __init__(self, email):
+    def __init__(self, email, password):
         self.email = email
+        self.password = password
         self.created = dt.now()
     
     def __repr__(self):
-        return f"User(id={self.id!r}, email={self.email}, created={self.created})"
+        return f"User(id={self.id!r}, email={self.email}, password={self.password}, created={self.created})"
 
 
 # Donation Model
 class Donation(db.Model):
-    __tablename__ = 'gufcdonations'
+    """ 
+    Data model 
+    """
+    __tablename__ = "gufcdonations"
     id = db.Column(db.Integer, primary_key=True)
     d_created = db.Column(db.DateTime, index=False, unique=False, nullable=False)
     amount = db.Column(db.Integer, unique=False, nullable=False)
@@ -49,7 +49,7 @@ class Donation(db.Model):
 
 # Player Model
 class TeamMember(db.Model):
-    __tablename__ = 'gufcTeam'
+    __tablename__ = "gufcTeam"
     id = db.Column(db.Integer, primary_key=True)
     img_src = db.Column(db.String(255), nullable=False)
     name = db.Column(db.String(255), nullable=False, unique=True)
@@ -65,10 +65,33 @@ class TeamMember(db.Model):
     def __repr__(self):
         return f"TeamMember(id={self.id}, img_src={self.img_src}, name={self.name}, pos={self.position}, desc={self.description})"
     
+# Event Model
+class Event(db.Model):
+    __tablename__ = "gufcevents"
+    id = db.Column(db.Integer, primary_key=True, nullable=False)
+    created = db.Column(db.DateTime, nullable=False)
+    start_time = db.Column(db.DateTime, nullable=False)
+    end_time = db.Column(db.DateTime, nullable=False)
+    title = db.Column(db.String(255), nullable=False)
+    descript = db.Column(db.String(500), nullable=False)
+    cost = db.Column(db.Numeric(18, 2), nullable=False)
+    physical_addr = db.Column(db.String(255), nullable=False)
+    
+    def __init__(self, start_time, end_time, title, description, cost, physical_addr):
+        self.created = dt.now()
+        self.start_time = start_time
+        self.end_time = end_time
+        self.title = title
+        self.description = description
+        self.cost = cost
+        self.physical_addr = physical_addr
+        
+    def __repr__(self):
+        return f"Event(id={self.id}, created={self.created}, start_time={self.start_time}, end_time={self.end_time}, title={self.title}, description={self.description}, cost={self.cost}, physical_addr={self.physical_addr}"
 
 # Card Model
 class Article(db.Model):
-    __tablename__ = 'gufcNews'
+    __tablename__ = "gufcNews"
     id = db.Column(db.Integer, primary_key=True)
     created = db.Column(db.DateTime, index=False, unique=False, nullable=False)
     # author = ForeignKey(TeamMember.name, default='GUFC Admin')
@@ -94,7 +117,7 @@ class Article(db.Model):
 
 # Match Model
 class Match(db.Model):
-    __tablename__ = 'gufcMatches'
+    __tablename__ = "gufcMatches"
     id = db.Column(db.Integer, primary_key=True)
     match_date = db.Column(db.DateTime, index=True, unique=True, nullable=False)
     opponent = db.Column(db.String(255), index=True, unique=False, nullable=False)
@@ -109,7 +132,7 @@ class Match(db.Model):
         return f"Match(id={self.id}, match_date={self.match_date}, opponent={self.opponent}, logo_src={self.logo_src})"
     
 class Main(db.Model):
-    __tablename__ = 'gufcmain'
+    __tablename__ = "gufcmain"
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(255), nullable=False)
     value = db.Column(db.Integer, nullable=False)

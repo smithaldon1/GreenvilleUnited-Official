@@ -1,0 +1,31 @@
+{% extends 'store/base.html' %}
+
+{% block css %}
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/store-base.css') }}">
+{% endblock %}
+
+{% block header %}
+  <div class="catalog">
+    <div class="container-sm">
+      <div class="row row-cols-1 row-cols-lg-3 align-items-stretch g-4 py-5">
+        {% for item in items %}
+        <div class="col">
+          <div class="card" style="width: 18rem;">
+            <img src="{{ item.imgSrc }}" class="card-img-top" alt="{{ item.title }}">
+            <div class="card-body">
+              <h5 class="card-title">${{ item.cost }}.99</h5>
+              <p class="card-text">{{ item.description }}</p>
+              <a href="#" class="btn btn-primary">Add to Cart</a>
+              <a href="#" class="btn btn-primary">Details</a>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+{% endblock %}
+
+{% block main %}{% endblock %}
+
+{% block js %}{% endblock %}

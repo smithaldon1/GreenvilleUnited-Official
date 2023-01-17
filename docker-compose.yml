@@ -26,6 +26,9 @@ services:
     networks:
       - appnet
     volumes:
-      - ".:/app:rw"
+      - db-data:/var/lib/postgresql/data
 networks:
   appnet:
+
+volumes:
+  db-data:

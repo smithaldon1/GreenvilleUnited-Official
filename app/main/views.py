@@ -50,6 +50,10 @@ def show_index():
     title = 'GUFC Goes National!'
     return render_template('main/index.html', title=title, cards=spotlight_cards, partners=partners, sponsors=sponsors)
 
+@main_bp.route('/terms-and-conditions')
+def show_terms():
+    return render_template('main/terms-conditions.html', title='Terms and Conditions')
+
 @main_bp.route('/db-admin', methods=['GET', 'POST', 'PUT'])
 def show_db_admin():
     if request.method == 'GET':
@@ -217,7 +221,6 @@ def charge_card_donation(f_name, l_name, email, phone, amount, creditCard, b_zip
                       messages.message[0].description)
                 
                 donation = Donation(amount=amount, first_name=f_name, last_name=l_name, email=email, phone=phone, zip_code=b_zip)
-                
                 db.session.add(donation)
                 db.session.commit()
             else:
