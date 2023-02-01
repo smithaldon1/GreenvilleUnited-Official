@@ -18,9 +18,9 @@
           <div class="carousel-item active" data-bs-interval="20000">
             <img src="{{ url_for('static', filename='img/header-img.png') }}" class="d-block w-100 img" alt="...">
             <div class="carousel-caption pb-4">
-              <h1>GUFC is going national!</h1>
-              <p>Our Greenville United Football Club is going national! We are on a mission to take this club to the next level, so please consider helping us by making a donation.</p>
-              <a href="https://store.greenvilleutd.com/pages/make-a-donation-1" target="_blank" class="btn carousel-btn">Donate Today</a>
+              <h1>Open Tryouts for GUFC!</h1>
+              <p>We are hosting open tryouts for our team and invite the community to come out and showcase your skills.</p>
+              <a href="{{ url_for('main.show_tryouts') }}" class="btn carousel-btn">Join the team</a>
             </div>
           </div>
           <div class="carousel-item" data-bs-interval="20000">
@@ -51,83 +51,6 @@
       </div>
     </div>
   </div>
-  <!-- Spotlight Section -->
-  <!-- <div class="container py-5">
-    <h2 class="py-2">Spotlight</h2>
-    <div class="row g-3 py-4">
-      {% for card in cards %}
-      <div class="col-lg-4">
-        <div class="card mx-auto" style="max-width: 20rem; height: 25rem">
-          <img src="{{ card.img_src }}" class="card-img-top " alt="{{ card.img_title }}">
-          <div class="card-body">
-            <h5 class="card-title">{{ card.title }}</h5>
-            <p class="card-text">{{ card.text }}</p>
-             <a href="{{ card.link_url }}" class="btn btn-primary">Read More</a> --
-          </div>
-        </div>
-      </div>
-      {% endfor %}
-    </div>
-  </div> -->
-
-  <!-- News Section -->
-  <!-- <div class="container py-4">
-    <h2>News</h2>
-    <div class="row g-3" data-masonry='{"percentPosition": true }'>
-      {% for card in cards %}
-      <div class="col-md-6 col-lg-3">
-        <div class="card" style="width: 18rem;">
-          <img src="..." class="card-img-top" alt="...">
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
-          </div>
-        </div>
-      </div>
-      {% endfor %}
-      <div class="col-md-6 col-lg-4 col-xl-3">
-        <div class="card" style="width: 18rem;">
-          <img src="..." class="card-img-top" alt="...">
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-6 col-lg-4 col-xl-3">
-        <div class="card" style="width: 18rem;">
-          <img src="..." class="card-img-top" alt="...">
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-6 col-lg-4 col-xl-3">
-        <div class="card" style="width: 18rem;">
-          <img src="..." class="card-img-top" alt="...">
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-6 col-lg-4 col-xl-3">
-        <div class="card" style="width: 18rem;">
-          <img src="..." class="card-img-top" alt="...">
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div> -->
   
   <!-- Social Media Section -->
   <div class="container py-4">
@@ -166,7 +89,7 @@
   <!-- Partners -->
   <div class="container-fluid py-4" id="partners-div">
     <div class="container-sm">
-      <h2 class="text-center">Our Partners</h2>
+      <h2 class="text-center">Essential Partners</h2>
       <div class="container text-center py-4">
         {% for partner in partners %}
         <a href="{{ partner.href }}" target="_blank" class="text-decoration-none">
@@ -180,7 +103,7 @@
   <!-- Local Sponsors -->
   <div class="container-fluid py-4" id="sponsors-div">
     <div class="container-sm">
-      <h2 class="text-center">Local Sponsors</h2>
+      <h2 class="text-center">Team Sponsors</h2>
       <div class="container text-center py-4">
         {% for sponsor in sponsors %}
         <a href="{{ sponsor.href }}" target="_blank" class="text-decoration-none">

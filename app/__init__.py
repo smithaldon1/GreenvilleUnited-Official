@@ -51,7 +51,7 @@ def register_blueprints(app):
     app.register_blueprint(contact_bp, url_prefix='/contact')
     app.register_blueprint(main_bp)
     app.register_blueprint(store_bp)
-    app.register_blueprint(partners_bp, url_prefix='/partners')
+    app.register_blueprint(partners_bp)
     
 def initialize_extensions(app):
     db.init_app(app)

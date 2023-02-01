@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block css %}
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/contact.css') }}">
+{% endblock %}
+
+{% block main %}
+  <!-- Hero Title w/ background image -->
+  <div class="hero container-fluid py-5" style="background-image: url({{ url_for('static', filename='img/main-header.jpg') }});">
+    <div class="container-sm text-center py-5">
+        <h1 class="display-5">{{ title }}</h1>
+    </div>
+  </div>
+  <div class="container-sm py-2">
+    <p class="py-3" style="font-size: 1.75rem;">We invite any opportunity to engage with our community. Please use (or copy) the following links to email us!</p>
+    <ul>
+        <li class="py-1">
+            Website Support: <a href="mailto:admin@greenvilleutd.com">Greenville United Admin</a>
+        </li>
+        <li class="py-1">
+            Merchandise Support: <a href="mailto:store@greenvilleutd.com">Greenville United Store Management</a>
+        </li>
+        <li class="py-1">
+            Organization Support: <a href="mailto:club@greenvilleutd.com">Greenville United Club Management</a>
+        </li>
+        <li class="py-1">
+          Phone: <a href="tel:+12523758270">252.375.8270</a>. Feel free to text us!
+        </li>
+    </ul>
+    <hr>
+    <h1 class="display-6 pb-3">Home-Field Location</h1>
+    <div class="mapouter"><div class="gmap_canvas"><iframe width="600" height="400" id="gmap_canvas" src="https://maps.google.com/maps?q=2085%20Quail%20Ridge%20Road&t=&z=15&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe><a href="https://123movies-i.net"></a><br><style>.mapouter{position:relative;text-align:right;height:400px;width:600px;}</style><a href="https://www.embedgooglemap.net">embedding google maps</a><style>.gmap_canvas {overflow:hidden;background:none!important;height:400px;width:600px;}</style></div></div>
+  </div>
+{% endblock %}
+
+{% block js %}{% endblock %}
