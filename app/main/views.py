@@ -38,6 +38,12 @@ def show_index():
         'href': 'https://carolinavisioncare.com/'
     }
     
+    wirth = {
+        'img_src': url_for('static', filename='img/wirth.png'),
+        'name': 'Wirth Chiropractic and Active Living Center',
+        'href': 'https://www.wirthchiropractic.com/'
+    }
+    
     botanic_tonics = {
         'img_src': url_for('static', filename='img/botanic-tonics-logo.png'),
         'name': 'Botanic Tonics Logo',
@@ -45,19 +51,19 @@ def show_index():
     }
     
     partners = [botanic_tonics]
-    sponsors = [carolina_vision]
+    sponsors = [wirth, carolina_vision]
     
     title = 'GUFC Goes National!'
-    return render_template('main/index.html', title=title, cards=spotlight_cards, partners=partners, sponsors=sponsors)
+    return render_template('main/index.html', title=title, cards=spotlight_cards, partners=partners, sponsors=sponsors,)
 
 @main_bp.route('/terms-and-conditions')
 def show_terms():
     return render_template('main/terms-conditions.html', title='Terms and Conditions')
 
-@main_bp.route('/db-admin', methods=['GET', 'POST', 'PUT'])
-def show_db_admin():
-    if request.method == 'GET':
-        return render_template('main/form.html')
+# @main_bp.route('/db-admin', methods=['GET', 'POST', 'PUT'])
+# def show_db_admin():
+#     if request.method == 'GET':
+#         return render_template('main/form.html')
 
 @main_bp.route('/donate', methods=['GET', 'POST'])
 def show_donate():
@@ -113,6 +119,14 @@ def show_donate():
         # Return 'Thank You' template with share donation enabled, and assigned template vars
         return render_template('main/thank-you.html', title='Thank you for your Donation', donated=True, htag=htag, ptag=ptag)
 
+
+@main_bp.route('/tryouts')
+def show_tryouts():
+    return render_template('main/tryouts.html', title='Tryouts')
+
+@main_bp.route('/contact')
+def show_contact():
+    return render_template('main/contact.html', title='Contact')
 
 @main_bp.route('/site-map', methods=['GET'])
 def show_site_map():

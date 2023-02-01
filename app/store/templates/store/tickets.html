@@ -1,13 +1,11 @@
 {% extends 'base.html' %}
 
-{% block css %}
-  
-{% endblock %}
+{% block css %}{% endblock %}
 
 {% block main %}
-  
+  <div class="container-sm py-3">
+    <div class="tix-embed"></div><script>window.tixEmbed = window.tixEmbed || {'inst': []}; window.tixEmbed.inst.push({'countdown': false, 'events': true, 'eventId': 'all', 'filters': ''});</script><script async src="https://gufc.hometownticketing.com/embed/remote.js"></script>
+  </div>
 {% endblock %}
 
-{% block js %}
-  
-{% endblock %}
+{% block js %}{% endblock %}

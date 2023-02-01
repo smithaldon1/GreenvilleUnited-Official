@@ -35,8 +35,8 @@ def show_product_details(product):
 @store_bp.route('/tickets')
 def show_tickets():
     title = 'Purchase Tickets'
-    # return render_template('store/tickets.html', title=title)
-    return render_template('under-construction.html', title=title)
+    return render_template('store/tickets.html', title=title)
+    # return render_template('under-construction.html', title=title)
 
 @store_bp.route('/support')
 def show_support():

@@ -1,24 +1,18 @@
 from . import partners_bp
 from flask import render_template, request
 
-@partners_bp.route('/')
+@partners_bp.route('/partners')
 def show_index():
-    if request.method == 'GET':
-        title = 'Partners'
-        # return render_template('partners/index.html', title=title)
-        return render_template('under-construction.html', title=title)
+    title = 'Partners'
+    # return render_template('partners/index.html', title=title)
+    return render_template('under-construction.html', title=title)
     
-@partners_bp.route('/local-sponsors')
-def show_local_sponsors():
-    title = 'Local Sponsors'
-    # return render_template('partners/local-sponsors.html', title=title)
+@partners_bp.route('/sponsors')
+def show_sponsors():
+    title = 'Sponsors'
+    # return render_template('partners/sponsors.html', title=title)
     return render_template('under-construction.html', title=title)
-
-@partners_bp.route('/become-a-partner')
-def show_partner():
-    title = 'Become A Partner'
-    # return render_template('partners/partner.html', title=title)
-    return render_template('under-construction.html', title=title)
+    
 
 @partners_bp.route('/donation-policy')
 def show_donation_pp():

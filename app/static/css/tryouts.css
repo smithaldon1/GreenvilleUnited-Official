@@ -1,0 +1,10 @@
+p {
+    font-size: 1.5rem;
+}
+.link {
+    color: var(--gufc-yellow);
+    transition: all 0.25s ease-in-out;
+}
+.link:hover {
+    color: var(--gufc-green);
+}
