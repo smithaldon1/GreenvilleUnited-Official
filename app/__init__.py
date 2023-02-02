@@ -41,14 +41,12 @@ def create_app():
 def register_blueprints(app):
     from app.about import about_bp
     from app.community import community_bp
-    from app.contact import contact_bp
     from app.main import main_bp
     from app.partners import partners_bp
     from app.store import store_bp
     
     app.register_blueprint(about_bp, url_prefix='/about')
     app.register_blueprint(community_bp, url_prefix='/community')
-    app.register_blueprint(contact_bp, url_prefix='/contact')
     app.register_blueprint(main_bp)
     app.register_blueprint(store_bp)
     app.register_blueprint(partners_bp)
