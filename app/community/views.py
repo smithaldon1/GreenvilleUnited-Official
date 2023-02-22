@@ -14,8 +14,8 @@ def show_index():
 @community_bp.route('/youth')
 def show_youth():
     title = 'Youth'
-    # return render_template('community/youth.html', title=title)
-    return render_template('under-construction.html', title=title)
+    return render_template('community/youth.html', title=title)
+    # return render_template('under-construction.html', title=title)
 
 @community_bp.route('/engagement')
 def show_engagement():
