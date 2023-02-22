@@ -1,13 +1,90 @@
 {% extends 'base.html' %}
 
 {% block css %}
-  
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/youth.css') }}">
 {% endblock %}
 
 {% block main %}
-  
+<div class="container-sm pt-5" style="min-height: 75vh;">
+    <div class="container py-3">
+        <h1 class="display-5 text-center">Attend our youth skills camps!</h1>
+        <p class="py-2 w-75 mx-auto">Is your child interested in refining their soccer skills? Look no further! Available to all youth ages 12 & younger.</p>
+    </div>
+    <div class="container py-2">
+        <h1 class="display-6 py-2">Step 1: Questionnaire</h1>
+        <hr>
+        <!-- TODO: update questionnaire link -->
+        <p class="py-2">Complete the questionnaire, <a class="link" href="https://docs.google.com/forms/d/e/1FAIpQLSca3tiEICX8O4-7WJqIDk6RgzBY3R730ym3zSEOjE_QI_PnZg/viewform" target="_blank">here</a>.</p>
+    </div>
+    <div class="container py-2">
+        <h1 class="display-6 py-2">Step 2: Liability Waivers</h1>
+        <hr>
+        <p class="py-2">Download, complete, and bring the following waiver with you when you attend the camp!</p>
+        <div class="row gx-4">
+            <div class="column text-center">
+                <a href="../../../static/pdf/WAIVER-AND-RELEASE-OF-LIABILITY.pdf" download>
+                    <img src="{{ url_for('static', filename='img/Greenville-Logo.png') }}" alt="GUFC-Waiver-Icon" class="rounded" height="50px">
+                </a>
+                <p class="py-2">Greenville United Waiver</p>
+            </div>
+        </div>
+    </div>
+    <div class="container py-2">
+        <h1 class="display-6 py-2">Step 3: Pay fees and attend camp!</h1>
+        <hr>
+        <!-- Update link with  -->
+        <p class="py-2">Pay the camp fees, <a class="link" href="https://store.greenvilleutd.com/products/tryout-fees" target="_blank">here</a>, or you can bring payment with you. If the questionnaire or waivers are not completed and submitted, you will not be able to tryout.</p>
+    </div>
+    <div class="container py-4 row">
+        <h1 class="display-6">Camp Details</h1>
+        <ul class="nav nav-tabs" id="myTab" role="tablist">
+            <li class="nav-item" role="presentation">
+              <button class="nav-link active" id="may-tab" data-bs-toggle="tab" data-bs-target="#may-tab-pane" type="button" role="tab" aria-controls="may-tab-pane" aria-selected="true">May</button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button class="nav-link" id="june-tab" data-bs-toggle="tab" data-bs-target="#june-tab-pane" type="button" role="tab" aria-controls="june-tab-pane" aria-selected="false">June</button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button class="nav-link" id="july-tab" data-bs-toggle="tab" data-bs-target="#july-tab-pane" type="button" role="tab" aria-controls="july-tab-pane" aria-selected="false">July</button>
+            </li>
+          </ul>
+          <div class="tab-content" id="myTabContent">
+            <div class="tab-pane fade show active" id="may-tab-pane" role="tabpanel" aria-labelledby="may-tab" tabindex="0">
+                <div class="text-center py-3">
+                    <p class="py-0">Dates: May 22, 2023 through May 25, 2023</p>
+                    <p class="py-0">Location: ECU North Recreational Complex</p>
+                    <p class="py-0">Address: 3764 US 264 East, Greenville, NC 27834</p>
+                    <p class="py-0">Time: 6:00pm - 8:30pm</p>
+                </div>
+                <div class="text-center">
+                    <div class="mapouter mx-auto"><div class="gmap_canvas"><iframe width="450" height="300" id="gmap_canvas" src="https://maps.google.com/maps?q=3764%20US%20264%20East,%20Greenville,%20NC%2027834&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe><a href="https://embedgooglemap.net/124/"></a><br><style>.mapouter{position:relative;text-align:right;height:300px;width:450px;}</style><a href="https://www.embedgooglemap.net">google maps on my web site</a><style>.gmap_canvas {overflow:hidden;background:none!important;height:300px;width:450px;}</style></div></div>
+                </div>
+            </div>
+            <div class="tab-pane fade" id="june-tab-pane" role="tabpanel" aria-labelledby="june-tab" tabindex="0">
+                <div class="text-center py-3">
+                    <p class="py-0">Dates: June 19, 2023 through June 22, 2023</p>
+                    <p class="py-0">Location: ECU North Recreational Complex</p>
+                    <p class="py-0">Address: 3764 US 264 East, Greenville, NC 27834</p>
+                    <p class="py-0">Time: 9:00am - 12:00pm</p>
+                </div>
+                <div class="text-center mx-auto">
+                    <div class="mapouter mx-auto"><div class="gmap_canvas"><iframe width="450" height="300" id="gmap_canvas" src="https://maps.google.com/maps?q=3764%20US%20264%20East,%20Greenville,%20NC%2027834&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe><a href="https://embedgooglemap.net/124/"></a><br><style>.mapouter{position:relative;text-align:right;height:300px;width:450px;}</style><a href="https://www.embedgooglemap.net">google maps on my web site</a><style>.gmap_canvas {overflow:hidden;background:none!important;height:300px;width:450px;}</style></div></div>
+                </div>
+            </div>
+            <div class="tab-pane fade" id="july-tab-pane" role="tabpanel" aria-labelledby="july-tab" tabindex="0">
+                <div class="text-center py-3">
+                    <p class="py-0">Dates: <b>July 10, 2023 through July 13, 2023</b></p>
+                    <p class="py-0">Location: John Paul II High School Stadium</p>
+                    <p class="py-0">Address: 3764 US 264 East, Greenville, NC 27834</p>
+                    <p class="py-0">Time: <b>9:00am - 12:00pm</b></p>
+                </div>
+                <div class="text-center">
+                    <div class="mapouter mx-auto"><div class="gmap_canvas"><iframe width="450" height="300" id="gmap_canvas" src="https://maps.google.com/maps?q=3764%20US%20264%20East,%20Greenville,%20NC%2027834&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe><a href="https://embedgooglemap.net/124/"></a><br><style>.mapouter{position:relative;text-align:right;height:300px;width:450px;}</style><a href="https://www.embedgooglemap.net">google maps on my web site</a><style>.gmap_canvas {overflow:hidden;background:none!important;height:300px;width:450px;}</style></div></div>
+                </div>
+            </div>
+          </div>
+    </div>
+</div>
 {% endblock %}
 
-{% block js %}
-  
-{% endblock %}
+{% block js %}{% endblock %}
