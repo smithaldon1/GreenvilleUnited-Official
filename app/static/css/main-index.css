@@ -9,6 +9,10 @@
 }
 .carousel-item > img {
     background-size: cover;
+    position: relative;
+}
+.carousel-item:first-child > img {
+    top: -150px;
 }
 .carousel-caption {
     color: var(--gufc-yellow);
